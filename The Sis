@@ -1,0 +1,386 @@
+%----------------------------------------------------------%
+
+%----------------------------------%
+%   *VERY* CUMBERSOME PREAMBLE     %
+%----------------------------------%
+
+\documentclass[a4paper,11pt]{report}
+\renewcommand*{\familydefault}{\sfdefault}
+\usepackage[top=2.54truecm, bottom=3.26truecm, left=4truecm, right=2truecm, footskip=1.7truecm]{geometry}
+\usepackage[english]{babel}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%            GLOSSARY            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[nonumberlist,nopostdot,style=super]{glossaries}
+\usepackage{acronym}
+\usepackage{glossary-mcols}
+%firstchar uppercase, text lowercase
+\let\firstchar\lowercase
+\let\oldprintglossary\printglossary
+\def\printglossary{\let\firstchar\uppercase\oldprintglossary}
+
+\makeglossaries
+
+\renewcommand{\glsnamefont}[1]{\textbf{#1}}
+\setlength{\glsdescwidth}{0.8\textwidth}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%              FONT              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[no-math]{fontspec}
+\setmainfont{Charter-Reg.otf}[
+Path = fonts/,
+BoldFont = Charter-Bold.otf,
+ItalicFont = Charter-It.otf,
+BoldItalicFont = Charter-BoldIt.otf]
+
+%FIRA SANS VERSION
+\setsansfont{FiraSans-ExtraLight.otf}[Scale=MatchLowercase, Path=fonts/, BoldFont = FiraSans-Book.otf, ItalicFont = FiraSans-ExtraLightItalic.otf, BoldItalicFont = FiraSans-BookItalic.otf]
+\newfontfamily\Light{FiraSans-Light.otf}[Scale=MatchLowercase, Path=fonts/, ItalicFont = FiraSans-LightItalic.otf]
+\newfontfamily\UltraLig{FiraSans-UltraLight.otf}[Scale=MatchLowercase, Path=fonts/, ItalicFont = FiraSans-UltraLightItalic.otf]
+\newfontfamily\Medium{FiraSans-Medium.otf}[Scale=MatchLowercase, Path=fonts/, ItalicFont = FiraSans-MediumItalic.otf]
+\newfontfamily\Book{FiraSans-Regular.otf}[Scale=MatchLowercase, Path=fonts/, BoldFont = FiraSans-SemiBold.otf, ItalicFont = FiraSans-Italic.otf, BoldItalicFont = FiraSans-SemiBoldItalic.otf]
+\newfontfamily\Mono{FiraMono-Regular.otf}[Path=fonts/, Scale=MatchLowercase]
+\defaultfontfeatures{Mapping=tex-text, Scale = MatchLowercase}
+
+
+%BITSTREAM CHARTER
+\newcommand*{\mifont}{\usefont{T1}{bch}{m}{n}\selectfont}{\par}
+\newcommand*{\myfont}{\fontfamily{cmr}\selectfont}
+
+\usepackage{fourier-orns}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%              URL               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[hyphens]{url}
+
+\makeatletter
+\def\url@foostyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\sloppy\Mono}}}
+\makeatother
+
+%\makeatletter
+%\def\url@foostyle{%
+%  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\sloppy\normalfont\bfseries}}}
+%\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%             OTHERS             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[utf8]{inputenc}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{xfrac}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{{imagen/}}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[UKenglish]{isodate}
+\cleanlookdateon
+\usepackage{abbrevs}
+\usepackage{relsize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%              TOC               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{appendix}
+\usepackage[titles]{tocloft}
+
+\renewcommand{\cftfigfont}{\usefont{T1}{bch}{m}{n}\selectfont}
+\renewcommand{\cfttabfont}{\usefont{T1}{bch}{m}{n}\selectfont}
+
+\titlecontents{chapter} 
+[2.3em]                 % adjust left margin
+{\bfseries}             % font formatting
+{\contentslabel{2.3em}} % section label and offset
+{\hspace*{-2.3em}}
+{\titlerule*[1pc]{.}\contentspage}
+
+\makeatletter
+\titlecontents{chapter}%
+ [0em]% 
+ {\addvspace{2em}}%
+ {\bfseries\@chapapp\ \thecontentslabel\quad}% 
+ {\hspace{-0em}}% 
+ {\hfill\contentspage}% 
+ [\addvspace{0pt}]% 
+
+\g@addto@macro\appendices{%
+  \addtocontents{toc}{\protect\renewcommand{\protect\@chapapp}{\appendixname}}%
+}
+\makeatother
+
+\renewcommand{\cftsecfont} % section titles
+             {\usefont{T1}{bch}{m}{n}\selectfont}
+\renewcommand{\cftsubsecfont} % subsection titles
+             {\usefont{T1}{bch}{m}{n}\selectfont} 
+\renewcommand{\cftchappagefont} % chapter page numbers
+             {\usefont{T1}{bch}{m}{n}\selectfont}
+\renewcommand{\cftsecpagefont} % section page numbers
+             {\cftsecfont} 
+\renewcommand{\cftsubsecpagefont} % subsection page numbers
+             {\cftsubsecfont}
+\renewcommand{\cftfigpagefont} % ListofFigures page numbers
+             {\cftsecfont}
+\renewcommand{\cfttabpagefont} % ListofTables page numbers
+             {\cftsecfont}
+          
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     CHAPTER HEADER FORMATS     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\titleformat{\chapter}[display]
+  {\Book\bfseries\Huge\filcenter}{\chaptertitlename\ \thechapter}{-11pt}{\Huge}
+\titleformat{\section}{\Medium\huge}{\thesection}{0.9em}{}
+\titleformat{\subsection}{\Medium\LARGE}{\thesubsection}{0.9em}{}
+
+\titlespacing*{\chapter}{0pt}{-44pt}{18pt}
+\titlespacing*{\section}{0pt}{13pt}{9pt}
+\titlespacing*{\subsection}{0pt}{10pt}{9pt}
+\titleformat{\subparagraph}{\Medium\Large}{\thesubparagraph}{1em}{}
+\titlespacing*{\subparagraph}{\parindent}{2.3ex plus 1ex minus .2ex}{.75ex plus .1ex}
+\usepackage{blindtext}
+\setlength{\textfloatsep}{21pt plus 2.0pt minus 4.0pt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%             SPACING            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{setspace}
+\usepackage{leading}
+\leading{13.75pt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    BACK/FRONT MATTER HEADERS   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}
+\renewcommand{\headrulewidth}{0pt}
+\addto\captionsenglish{\renewcommand{\contentsname}{\centering\vspace*{10pt}Table of Contents\vspace{5pt}}}
+\addto\captionsenglish{\renewcommand{\listfigurename}{\centering\vspace*{10pt}List of Figures\vspace{5pt}}}
+\addto\captionsenglish{\renewcommand{\listtablename}{\centering\vspace*{10pt}List of Tables\vspace{5pt}}}
+\newcommand*{\glossyname}{Abbreviations}
+\addto\captionsenglish{\renewcommand{\glossyname}{\Book\bfseries\Huge\centering\vspace*{11pt}Abbreviations\vspace{5pt}}}
+\newcommand*{\ackname}{Acknowledgements}
+\addto\captionsenglish{\renewcommand{\ackname}{\Book\bfseries\Huge\centering\vspace*{-31pt}Acknowledgements\vspace{5pt}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%            PLACEINS            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{placeins}  %cousin of casein :)
+\makeatletter
+\AtBeginDocument{%
+  \expandafter\renewcommand\expandafter\subsection\expandafter
+    {\expandafter\@fb@secFB\subsection}%
+  \newcommand\@fb@secFB{\FloatBarrier
+    \gdef\@fb@afterHHook{\@fb@topbarrier \gdef\@fb@afterHHook{}}}%
+  \g@addto@macro\@afterheading{\@fb@afterHHook}%
+  \gdef\@fb@afterHHook{}%
+}
+\makeatother
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%         MARGINS + LOGOS        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\usepackage{showframe} %MARGIN FOR DRAFT
+\usepackage{dtklogos}
+\usepackage{cclicenses}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%          SUB/CAPTIONS          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[margin=1cm]{caption}
+\DeclareCaptionLabelFormat{mycaption}{%
+  \bothIfFirst{\Book{#1}}{~}\Book{#2}}
+\captionsetup{labelsep=quad,labelformat=mycaption,justification=centering}
+\usepackage{subcaption}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%            PGFPLOTS            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{chemfig}
+\usepackage{pgfplots}
+%\pgfplotsset{width=7cm,compat=1.8}
+\usepgfplotslibrary{patchplots}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%             BIBLIO             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{apacite}
+\usepackage[longnamesfirst]{natbib}
+\renewcommand{\bibsection}{\centering\vspace{28pt}\vspace{-24pt}}
+\usepackage[version=3]{mhchem}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%         CUSTOM LEGEND          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{customlegend}[1][]{%
+    \begingroup
+    % inits/clears the lists (which might be populated from previous
+    % axes):
+    \csname pgfplots@init@cleared@structures\endcsname
+    \pgfplotsset{#1}%
+}{%
+    % draws the legend:
+    \csname pgfplots@createlegend\endcsname
+    \endgroup
+}%
+
+% makes \addlegendimage available (typically only available within an
+% axis environment):
+\def\addlegendimage{\csname pgfplots@addlegendimage\endcsname}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%            TABLEAUX            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{float}
+\floatstyle{plaintop}
+\restylefloat{table}
+
+\usepackage{tabu}
+\usepackage{tabularx}
+\usepackage{hhline}
+\usepackage{array}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}m{0.95cm}}
+\newcolumntype{D}{>{\singlespacing\arraybackslash}p{5.6cm}}
+\newcolumntype{M}{>{\singlespacing\arraybackslash}p{4cm}}
+\usepackage{pgfgantt}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%      PAR SPACE + TABLEAU       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{parskip}
+\setlength{\parskip}{\baselineskip}
+
+\usepackage{booktabs}
+\usepackage[flushleft]{threeparttable}
+\usepackage{threeparttablex}
+\usepackage{multirow}
+
+\usepackage{afterpage}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%          HYPERDOODLES          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[
+			pdftitle={Lorem Ipsum Dolor},
+            pdfsubject={lolol},
+            linktoc=all, breaklinks=true]{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor={cwcSalmon!45!},	%CHANGE TO BLACK WHEN DONE
+    citecolor={cwcGreen1!45!},	%CHANGE TO BLACK WHEN DONE
+    urlcolor={redd!60!cwcSalmon85},
+    pdfauthor={Insert Name Here},
+    pdfkeywords={{insert}, {key}, {words}}}
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+\usepackage{bookmark}
+
+%hyperlinked images + fontspec
+\newsavebox{\ximagebox}
+\newlength{\ximageheight}
+\newsavebox{\xglyphbox}
+\newlength{\xglyphheight}
+\newcommand{\xbox}[1]%
+   {\savebox{\ximagebox}{#1}%
+    \settoheight{\ximageheight}{\usebox{\ximagebox}}%
+    \savebox{\xglyphbox}{\char32}%
+    \settoheight{\xglyphheight}{\usebox{\xglyphbox}}%
+    \raisebox{\ximageheight}[0pt][0pt]{\raisebox{-\xglyphheight}[0pt][0pt]{%
+      \makebox[0pt][l]{\usebox{\xglyphbox}}}}%
+    \usebox{\ximagebox}%
+    \raisebox{0pt}[0pt][0pt]{\makebox[0pt][r]{\usebox{\xglyphbox}}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%         APACite - URL          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\AtBeginDocument{%
+  \urlstyle{APACsf}% APAC version of rm
+  % \urlstyle{rm}%
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   FOOTNOTES + ENUMERATE + ()   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{footnote}
+\usepackage{footnotebackref}
+\let\svfootnoterule\footnoterule
+\renewcommand\footnoterule{\vfill\svfootnoterule}
+
+\usepackage{enumerate}
+\usepackage{enumitem}
+
+\let\originalleft\left
+\let\originalright\right
+\renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft}
+\renewcommand{\right}{\aftergroup\egroup\originalright}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    COLOURS + PLOTS + MACROS    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{colores.tex}		%de colores
+\input{cyclo.tex}		%colour cycles
+\input{diagramme.tex}	%plot styles
+\input{comando.tex}		%macros
+\input{hyph.tex}		%hyphenation
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%              TiKZ              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tikz}
+\usetikzlibrary{calc,shadows,shapes,arrows,mindmap,trees,shapes.multipart,plotmarks}
+
+\tikzset{
+    invisible/.style={opacity=0},
+    visible on/.style={alt={#1{}{invisible}}},
+    alt/.code args={<#1>#2#3}{%
+      \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+    },
+  }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     LANDSCAPE + RAGGEDRIGHT    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{rotating}
+
+\usepackage{lscape}
+\usepackage{pdflscape}
+
+\usepackage{multicol}
+
+\usepackage[document]{ragged2e}
+
+
+%==========================================================%
+%==========================================================%
+
+
+\begin{document}
+\frenchspacing
+\urlstyle{foo}
+\addtocontents{toc}{~\hfill\textbf{Page}\par}
+\input{chapseq.tex}
+
+\end{document}
