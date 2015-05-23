@@ -6,7 +6,7 @@
 
 \documentclass[a4paper,11pt]{report}
 \renewcommand*{\familydefault}{\sfdefault}
-\usepackage[top=2.54truecm, bottom=3.26truecm, left=4truecm, right=2truecm, footskip=1.7truecm]{geometry}
+\usepackage[hoffset=0.5truein,vscale=0.8,footskip=1.75truecm]{geometry}
 \usepackage[english]{babel}
 
 
@@ -37,12 +37,12 @@ BoldFont = Charter-Bold.otf,
 ItalicFont = Charter-It.otf,
 BoldItalicFont = Charter-BoldIt.otf]
 
-%FIRA SANS VERSION
-\setsansfont{FiraSans-ExtraLight.otf}[Scale=MatchLowercase, Path=fonts/, BoldFont = FiraSans-Book.otf, ItalicFont = FiraSans-ExtraLightItalic.otf, BoldItalicFont = FiraSans-BookItalic.otf]
-\newfontfamily\Light{FiraSans-Light.otf}[Scale=MatchLowercase, Path=fonts/, ItalicFont = FiraSans-LightItalic.otf]
+%FIRA SANS http://www.carrois.com/en/fira-4-1/
+\setsansfont{FiraSans-Light.otf}[Scale=MatchLowercase, Path=fonts/, BoldFont = FiraSans-Regular.otf, ItalicFont = FiraSans-LightItalic.otf, BoldItalicFont = FiraSans-Italic.otf]
+\newfontfamily\ExtraLig{FiraSans-ExtraLight.otf}[Scale=MatchLowercase, Path=fonts/, ItalicFont = FiraSans-ExtraLightItalic.otf]
 \newfontfamily\UltraLig{FiraSans-UltraLight.otf}[Scale=MatchLowercase, Path=fonts/, ItalicFont = FiraSans-UltraLightItalic.otf]
 \newfontfamily\Medium{FiraSans-Medium.otf}[Scale=MatchLowercase, Path=fonts/, ItalicFont = FiraSans-MediumItalic.otf]
-\newfontfamily\Book{FiraSans-Regular.otf}[Scale=MatchLowercase, Path=fonts/, BoldFont = FiraSans-SemiBold.otf, ItalicFont = FiraSans-Italic.otf, BoldItalicFont = FiraSans-SemiBoldItalic.otf]
+\newfontfamily\Book{FiraSans-Book.otf}[Scale=MatchLowercase, Path=fonts/, BoldFont = FiraSans-SemiBold.otf, ItalicFont = FiraSans-BookItalic.otf, BoldItalicFont = FiraSans-SemiBoldItalic.otf]
 \newfontfamily\Mono{FiraMono-Regular.otf}[Path=fonts/, Scale=MatchLowercase]
 \defaultfontfeatures{Mapping=tex-text, Scale = MatchLowercase}
 
@@ -64,10 +64,6 @@ BoldItalicFont = Charter-BoldIt.otf]
   \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\sloppy\Mono}}}
 \makeatother
 
-%\makeatletter
-%\def\url@foostyle{%
-%  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\sloppy\normalfont\bfseries}}}
-%\makeatother
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %             OTHERS             %
@@ -83,6 +79,12 @@ BoldItalicFont = Charter-BoldIt.otf]
 \cleanlookdateon
 \usepackage{abbrevs}
 \usepackage{relsize}
+%COLOUR SWATCH
+\makeatletter
+\def\testclr#1#{\@testclr{#1}}
+\def\@testclr#1#2{{\fboxsep\z@\fbox{\colorbox#1{#2}{\phantom{XX}}}}}
+\newcommand*\Color[1]{\textsl{#1}}
+\makeatother
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -137,7 +139,7 @@ BoldItalicFont = Charter-BoldIt.otf]
 %     CHAPTER HEADER FORMATS     %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \titleformat{\chapter}[display]
-  {\Book\bfseries\Huge\filcenter}{\chaptertitlename\ \thechapter}{-11pt}{\Huge}
+  {\Medium\Huge\filcenter}{\chaptertitlename\ \thechapter}{-11pt}{\Huge}
 \titleformat{\section}{\Medium\huge}{\thesection}{0.9em}{}
 \titleformat{\subsection}{\Medium\LARGE}{\thesubsection}{0.9em}{}
 
@@ -155,7 +157,7 @@ BoldItalicFont = Charter-BoldIt.otf]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{setspace}
 \usepackage{leading}
-\leading{13.75pt}
+\leading{13.8pt}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -167,9 +169,9 @@ BoldItalicFont = Charter-BoldIt.otf]
 \addto\captionsenglish{\renewcommand{\listfigurename}{\centering\vspace*{10pt}List of Figures\vspace{5pt}}}
 \addto\captionsenglish{\renewcommand{\listtablename}{\centering\vspace*{10pt}List of Tables\vspace{5pt}}}
 \newcommand*{\glossyname}{Abbreviations}
-\addto\captionsenglish{\renewcommand{\glossyname}{\Book\bfseries\Huge\centering\vspace*{11pt}Abbreviations\vspace{5pt}}}
+\addto\captionsenglish{\renewcommand{\glossyname}{\Medium\Huge\centering\vspace*{11pt}Abbreviations\vspace{5pt}}}
 \newcommand*{\ackname}{Acknowledgements}
-\addto\captionsenglish{\renewcommand{\ackname}{\Book\bfseries\Huge\centering\vspace*{-31pt}Acknowledgements\vspace{5pt}}}
+\addto\captionsenglish{\renewcommand{\ackname}{\Medium\Huge\centering\vspace*{-31pt}Acknowledgements\vspace{3pt}}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -202,7 +204,7 @@ BoldItalicFont = Charter-BoldIt.otf]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[margin=1cm]{caption}
 \DeclareCaptionLabelFormat{mycaption}{%
-  \bothIfFirst{\Book{#1}}{~}\Book{#2}}
+  \bothIfFirst{\Medium{#1}}{~}\Medium{#2}}
 \captionsetup{labelsep=quad,labelformat=mycaption,justification=centering}
 \usepackage{subcaption}
 
@@ -222,7 +224,7 @@ BoldItalicFont = Charter-BoldIt.otf]
 \usepackage{apacite}
 \usepackage[longnamesfirst]{natbib}
 \renewcommand{\bibsection}{\centering\vspace{28pt}\vspace{-24pt}}
-\usepackage[version=3]{mhchem}
+\usepackage[version=4]{mhchem}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -280,16 +282,16 @@ BoldItalicFont = Charter-BoldIt.otf]
 %          HYPERDOODLES          %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[
-			pdftitle={Lorem Ipsum Dolor},
-            pdfsubject={lolol},
-            linktoc=all, breaklinks=true]{hyperref}
+	pdftitle={INSERT TITLE HERE},
+        pdfsubject={Economics},
+        linktoc=all, breaklinks=true]{hyperref}
 \hypersetup{
     colorlinks,
-    linkcolor={cwcSalmon!45!},	%CHANGE TO BLACK WHEN DONE
-    citecolor={cwcGreen1!45!},	%CHANGE TO BLACK WHEN DONE
-    urlcolor={redd!60!cwcSalmon85},
-    pdfauthor={Insert Name Here},
-    pdfkeywords={{insert}, {key}, {words}}}
+    linkcolor={bloo},		%CHANGE TO BLACK WHEN DONE
+    citecolor={cwcGreen3},	%CHANGE TO BLACK WHEN DONE
+    urlcolor={redd!60!cwcSalmon85!90!plumb},
+    pdfauthor={INSERT NAME HERE},
+    pdfkeywords={{INSERT}, {KEY}, {WORDS}}}
 \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
 \usepackage{bookmark}
 
@@ -340,7 +342,7 @@ BoldItalicFont = Charter-BoldIt.otf]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{colores.tex}		%de colores
 \input{cyclo.tex}		%colour cycles
-\input{diagramme.tex}	%plot styles
+\input{diagramme.tex}		%plot styles
 \input{comando.tex}		%macros
 \input{hyph.tex}		%hyphenation
 
@@ -380,6 +382,7 @@ BoldItalicFont = Charter-BoldIt.otf]
 \begin{document}
 \frenchspacing
 \urlstyle{foo}
+\fontsize{11.5}{11.5}\selectfont
 \addtocontents{toc}{~\hfill\textbf{Page}\par}
 \input{chapseq.tex}
 
