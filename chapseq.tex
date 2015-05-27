@@ -1,0 +1,213 @@
+%----------------------------------%
+%           TITLE PAGE             %
+%----------------------------------%
+
+\hypertarget{TitlePage}{}
+\include{TitlePage}
+\bookmark[dest=TitlePage]{Title Page}
+
+\begin{spacing}{1}
+\begin{titlepage}
+\begin{center}
+\vspace*{9pt}
+{\Medium\huge The very long title goes\\\smallskip here some:\\\bigskip Semiotics of academic relationships\\[1.7cm] }
+\marule[0pt][0pt][black] \\[1.1cm]
+{\LARGE A thesis \\\smallskip submitted in partial fulfilment\\\smallskip of the requirements for the Degree of\\}
+\medskip
+{\LARGE Master of Effort and Formality\\
+\vspace{37pt}
+at\\
+\vspace{17pt}
+Lincoln University\\
+\vspace{17pt}
+by\\
+\vspace{37pt}
+\LARGE Your Name Goes Here\\[1.1cm]}
+
+%\HRule \\[1.75cm]
+\marule[0pt][0pt][black] \\[1.7cm]
+
+{\Medium\LARGE Lincoln University\\\bigskip 2015}
+\vfill
+
+\end{center}
+\end{titlepage}
+\end{spacing}
+
+
+%----------------------------------%
+%          ABSTRACT PAGE           %
+%----------------------------------%
+
+\begin{spacing}{1}
+\section*{\vspace{-33pt}\normalfont\Large\center{\textbf{Abstract of a thesis submitted in partial fulfilment of the\\requirements for the Degree of Master of Effort and Formality.}}}
+\end{spacing}
+\phantomsection
+\addcontentsline{toc}{chapter}{\textbf{Abstract}}
+
+\vspace{1.2cm}
+\begin{center}\begin{spacing}{1}
+{\Large The very long title goes\\\smallskip here some:\\\bigskip Semiotics of academic relationships\\}
+\vspace{24pt}
+{\Large by
+\par
+\vspace{5pt}
+Your Name Goes Here\\[1.2cm]}
+\end{spacing}\end{center}
+\noindent
+\begin{spacing}{1.7}
+INSERT ABSTRACT HERE.
+\end{spacing}
+\begin{spacing}{1}
+\vspace{40pt}
+
+\noindent
+\textbf{Keywords:} insert, key, words, here
+\end{spacing}
+\medskip
+
+
+%----------------------------------%
+%         ACKNOWLEDGEMENT          %
+%----------------------------------%
+
+\newpage
+\phantomsection\addcontentsline{toc}{chapter}{\textbf{Acknowledgements}}
+\begin{spacing}{1}
+	\ackname
+\end{spacing}
+INSERT ACKNOWLEDGEMENTS HERE
+\newpage
+
+
+%----------------------------------%
+%             GLOSSARY             %
+%----------------------------------%
+
+\newpage
+\cleardoublepage\phantomsection\addcontentsline{toc}{chapter}{\textbf{Abbreviations}}
+  \newacronym{CO2}{\ce{CO2}}{\firstchar{C}arbon dioxide}
+  \newacronym{RCPs}{RCPs}{Representative Concentration Pathways}
+  \newacronym{SRES}{SRES}{Special Report on Emissions Scenarios}
+  \newacronym{GHGs}{GHGs}{\firstchar{G}reenhouse gases}
+  \newacronym{IPCC}{IPCC}{Intergovernmental Panel on Climate Change}
+  \newacronym{CGE}{CGE}{\firstchar{C}omputable general equilibrium}
+  \newacronym{OECD}{OECD}{Organisation for Economic Co-operation and Development }
+\begin{spacing}{1}
+\glsaddall
+\printglossary[title={\glossyname}]
+\newpage
+
+
+%----------------------------------%
+%        TABLE OF CONTENTS         %
+%----------------------------------%
+
+\newpage
+\cleardoublepage\phantomsection\addcontentsline{toc}{chapter}{\textbf{Table of Contents}}
+\begin{spacing}{1}
+  \tableofcontents
+  \addtocontents{toc}{\protect\afterpage{\hspace*{-1cm}\textbf{Table of Contents \textit{(continued)}}~\hfill\textbf{Page}\par\bigskip\bigskip}}
+  \end{spacing}
+\newpage
+
+
+%----------------------------------%
+%          LIST OF TABLES          %
+%----------------------------------%
+
+\newpage
+\cleardoublepage\phantomsection\addcontentsline{toc}{chapter}{\textbf{List of Tables}}
+\begin{spacing}{1}
+	\addtocontents{lot}{\enskip\textbf{Table}~\hfill\textbf{Page}\par}
+  \listoftables
+\end{spacing}
+\newpage
+
+
+%----------------------------------%
+%         LIST OF FIGURES          %
+%----------------------------------%
+
+\newpage
+\cleardoublepage\phantomsection\addcontentsline{toc}{chapter}{\textbf{List of Figures}}
+\begin{spacing}{1}
+	\addtocontents{lof}{\enskip\textbf{Figure}~\hfill\textbf{Page}\par}
+	\listoffigures
+\end{spacing}
+\newpage
+
+
+%----------------------------------------------------------%
+%                  CHAPTER 1 - INTRODUCTION                %
+%----------------------------------------------------------%
+
+\RaggedRight
+\input{Chapters/ch01}
+
+
+%----------------------------------------------------------%
+%              CHAPTER 2 - LITERATURE REVIEW               %
+%----------------------------------------------------------%
+
+\input{Chapters/ch02}
+
+
+%----------------------------------------------------------%
+%              CHAPTER 3 - METHODS                         %
+%----------------------------------------------------------%
+
+\input{Chapters/ch03}
+
+
+%----------------------------------------------------------%
+%              CHAPTER 4 - RESULTS                         %
+%----------------------------------------------------------%
+
+\input{Chapters/ch04}
+
+
+%----------------------------------------------------------%
+%                CHAPTER 5 - ECONOMIC                      %
+%----------------------------------------------------------%
+
+\input{Chapters/ch05}
+
+
+%----------------------------------------------------------%
+%               CHAPTER 6 - CONCLUSIONS                    %
+%----------------------------------------------------------%
+
+\input{Chapters/ch06}
+
+
+%----------------------------------------------------------%
+%                       APPENDICES                         %
+%----------------------------------------------------------%
+
+\begin{appendices}
+  \chapter{Appendix A}
+  \input{Sections/AppA1}
+  
+  \chapter{Appendix B}
+  \section{Subsection appendix}
+  
+  \chapter{Appendix C}
+  \input{Sections/AppC1}
+\end{appendices}
+
+
+%----------------------------------------------------------%
+%                       REFERENCES                         %
+%----------------------------------------------------------%
+
+\newpage
+\cleardoublepage\phantomsection\addcontentsline{toc}{chapter}{\textbf{References}}
+\chapter*{References}
+\begin{spacing}{1}
+\bibliographystyle{apacite}
+\setlength\bibitemsep{\baselineskip}
+\bibliography{draft1.bib}
+\end{spacing}
+
+%----------------------------------------------------------%
