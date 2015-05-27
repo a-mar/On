@@ -38,11 +38,30 @@ ItalicFont = Charter-It.otf,
 BoldItalicFont = Charter-BoldIt.otf]
 
 %FIRA SANS http://www.carrois.com/en/fira-4-1/
-\setsansfont{FiraSans-Light.otf}[Scale=MatchLowercase, Path=fonts/, BoldFont = FiraSans-Regular.otf, ItalicFont = FiraSans-LightItalic.otf, BoldItalicFont = FiraSans-Italic.otf]
-\newfontfamily\ExtraLig{FiraSans-ExtraLight.otf}[Scale=MatchLowercase, Path=fonts/, ItalicFont = FiraSans-ExtraLightItalic.otf]
-\newfontfamily\UltraLig{FiraSans-UltraLight.otf}[Scale=MatchLowercase, Path=fonts/, ItalicFont = FiraSans-UltraLightItalic.otf]
-\newfontfamily\Medium{FiraSans-Medium.otf}[Scale=MatchLowercase, Path=fonts/, ItalicFont = FiraSans-MediumItalic.otf]
-\newfontfamily\Book{FiraSans-Book.otf}[Scale=MatchLowercase, Path=fonts/, BoldFont = FiraSans-SemiBold.otf, ItalicFont = FiraSans-BookItalic.otf, BoldItalicFont = FiraSans-SemiBoldItalic.otf]
+\setsansfont{FiraSans-Light.otf}
+	[Scale=MatchLowercase,
+	Path=fonts/,
+	BoldFont = FiraSans-Regular.otf,
+	ItalicFont = FiraSans-LightItalic.otf,
+	BoldItalicFont = FiraSans-Italic.otf]
+\newfontfamily\ExtraLig{FiraSans-ExtraLight.otf}
+	[Scale=MatchLowercase,
+	Path=fonts/,
+	ItalicFont = FiraSans-ExtraLightItalic.otf]
+\newfontfamily\UltraLig{FiraSans-UltraLight.otf}
+	[Scale=MatchLowercase,
+	Path=fonts/,
+	ItalicFont = FiraSans-UltraLightItalic.otf]
+\newfontfamily\Medium{FiraSans-Medium.otf}
+	[Scale=MatchLowercase,
+	Path=fonts/,
+	ItalicFont = FiraSans-MediumItalic.otf]
+\newfontfamily\Book{FiraSans-Book.otf}
+	[Scale=MatchLowercase,
+	Path=fonts/,
+	BoldFont = FiraSans-SemiBold.otf,
+	ItalicFont = FiraSans-BookItalic.otf,
+	BoldItalicFont = FiraSans-SemiBoldItalic.otf]
 \newfontfamily\Mono{FiraMono-Regular.otf}[Path=fonts/, Scale=MatchLowercase]
 \defaultfontfeatures{Mapping=tex-text, Scale = MatchLowercase}
 
@@ -138,15 +157,28 @@ BoldItalicFont = Charter-BoldIt.otf]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     CHAPTER HEADER FORMATS     %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%FOR SUB/SECTION NUMBERS OUTSIDE MARGIN, TITLES FLUSH LEFT
+%\newlength\mylen
+%\setlength\mylen{\dimexpr+\hoffset\relax}
+
 \titleformat{\chapter}[display]
-  {\Medium\Huge\filcenter}{\chaptertitlename\ \thechapter}{-11pt}{\Huge}
-\titleformat{\section}{\Medium\huge}{\thesection}{0.9em}{}
-\titleformat{\subsection}{\Medium\LARGE}{\thesubsection}{0.9em}{}
+	{\Medium\Huge\filcenter}
+	{\chaptertitlename\ \thechapter}{-11pt}{\Huge}
+\titleformat{\section}[block]
+	{\Medium\huge}
+	%{\llap{\hspace*{-\mylen}\thesection\hfill}}{0em}{}	%Section numbers OUTSIDE OF MARGIN, section title FLUSH LEFT
+	{\thesection}{0.9em}{}
+\titleformat{\subsection}[block]
+	{\Medium\LARGE}
+	%{\llap{\hspace*{-\mylen}\thesubsection\hfill}}{0em}{}	%SubSect numbers OUTSIDE OF MARGIN, SubSect title FLUSH LEFT
+	{\thesubsection}{0.9em}{}
 
 \titlespacing*{\chapter}{0pt}{-44pt}{18pt}
 \titlespacing*{\section}{0pt}{13pt}{9pt}
 \titlespacing*{\subsection}{0pt}{10pt}{9pt}
-\titleformat{\subparagraph}{\Medium\Large}{\thesubparagraph}{1em}{}
+\titleformat{\subparagraph}
+	{\Medium\Large}
+	{\thesubparagraph}{1em}{}
 \titlespacing*{\subparagraph}{\parindent}{2.3ex plus 1ex minus .2ex}{.75ex plus .1ex}
 \usepackage{blindtext}
 \setlength{\textfloatsep}{21pt plus 2.0pt minus 4.0pt}
@@ -286,12 +318,12 @@ BoldItalicFont = Charter-BoldIt.otf]
         pdfsubject={Economics},
         linktoc=all, breaklinks=true]{hyperref}
 \hypersetup{
-    colorlinks,
-    linkcolor={bloo},		%CHANGE TO BLACK WHEN DONE
-    citecolor={cwcGreen3},	%CHANGE TO BLACK WHEN DONE
-    urlcolor={redd!60!cwcSalmon85!90!plumb},
-    pdfauthor={INSERT NAME HERE},
-    pdfkeywords={{INSERT}, {KEY}, {WORDS}}}
+	colorlinks,
+	linkcolor={bloo},		%CHANGE TO BLACK WHEN DONE
+	citecolor={cwcGreen3},	%CHANGE TO BLACK WHEN DONE
+	urlcolor={redd!60!cwcSalmon85!90!plumb},
+	pdfauthor={INSERT NAME HERE},
+	pdfkeywords={{INSERT}, {KEY}, {WORDS}}}
 \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
 \usepackage{bookmark}
 
