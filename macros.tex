@@ -1,0 +1,54 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%             MACROS             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\HRule}{\rule{9.75cm}{0.65mm}}
+\newcommand{\ana}{analysis}
+\newcommand{\used}[1]{\textit{With kind permission#1}}
+\newcommand{\nzed}{New Zealand}
+\newcommand{\cant}{Canterbury}
+\newcommand{\canter}{Canterbury region}
+\newcommand{\deri}{dairy industry}
+\newcommand{\deris}{dairy sector}
+\newcommand{\sce}[1]{scenario#1}
+\newcommand{\famg}{farm management}
+\newcommand{\cece}{climate change}
+\newcommand{\bigc}{Climate change}
+\newcommand{\cdap}{climate change adaptation}
+\newcommand{\adap}{adaptation}
+\newcommand{\bigad}{Adaptation}
+\newcommand{\dmod}{DairyMod}
+\newcommand{\namen}{INSERT NAME HERE}
+\newcommand{\ghg}[1]{GHG#1}
+\newcommand{\rcp}[1]{RCP~#1}
+\newcommand{\iam}[1]{IAM#1}
+\newcommand{\gcms}[1]{GCM#1}
+\newcommand{\ar}[1]{AR#1}
+\newcommand{\txup}[1]{\textsuperscript{#1}} %textsuperscript
+\newcommand{\gras}[1]{C$_\text{#1}$}  %C3 or C4 grasses
+\newcommand{\kulay}[1]{\textcolor{INSERT COLOUR NAME HERE}{#1}}
+\newcommand{\krey}[1]{\textcolor{INSERT COLOUR NAME HERE}{#1}}
+\newcommand{\oldie}{\fontspec[Numbers={OldStyle}, Scale=MatchUppercase]{Fira Sans Medium}}  %For title year
+\newcommand{\oldsb}{\fontspec[Numbers={OldStyle}]{Fira Sans SemiBold}}
+\newcommand{\ould}{\fontspec[Numbers={OldStyle}]{Fira Sans ExtraLight}}
+\newcommand{\asterism}{\smash{%
+\raisebox{-.5ex}{%
+\setlength{\tabcolsep}{-.5pt}%
+\begin{tabular}{@{}cc@{}}%
+\multicolumn2c*\\[-2ex]*&*%
+\end{tabular}}}}
+\newcommand{\arsch}{\textcolor{grey207}{\large{\asterism}}} %GREY ASTERISM
+\newcommand{\lowe}[1]{\textsc{\MakeLowercase{#1}}}  %MAKE ALL SMALL CAPS
+\newcommand{\dut}{\textcolor{whitegrey}{\tiny{\,$^\bullet$\,}}}
+\newcommand{\lowl}[1]{\large\textsc{\MakeLowercase{#1}}}
+\newcommand{\lels}[1]{\textsc{\MakeLowercase{\relsize{1.2}#1}}}
+\renewcommand{\deg}{\ensuremath{^{\circ}}\xspace} %DEGREE SYMBOL
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+\NewDocumentCommand{\marule}{O{1pt} O{3pt} O{black}}{%
+  \par\nobreak
+  \kern\the\prevdepth
+  \kern#2
+  {\color{#3}\HRule}
+  \kern#2
+  }
+\newcommand{\fooss}[1]{\,\footnote{\mifont{\,#1}}}  %FOOTNOTE WITH CHARTER FONT
+\newcommand{\smol}[1]{\small{\Mono{#1}}}  %MONO FONT USED
