@@ -30,6 +30,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %              FONT              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[utf8]{inputenc}
 \usepackage[no-math]{fontspec}
 \setmainfont{Charter-Reg.otf}[
 Path = fonts/,
@@ -38,32 +39,32 @@ ItalicFont = Charter-It.otf,
 BoldItalicFont = Charter-BoldIt.otf]
 
 %FIRA SANS http://www.carrois.com/en/fira-4-1/
-\setsansfont{FiraSans-Light.otf}
-	[Scale=MatchLowercase,
+\setsansfont{FiraSans-Light.otf}[
 	Path=fonts/,
+	Scale=MatchLowercase,
 	BoldFont = FiraSans-Regular.otf,
 	ItalicFont = FiraSans-LightItalic.otf,
 	BoldItalicFont = FiraSans-Italic.otf]
-\newfontfamily\ExtraLig{FiraSans-ExtraLight.otf}
-	[Scale=MatchLowercase,
+\newfontfamily\ExtraLig{FiraSans-ExtraLight.otf}[
 	Path=fonts/,
+	Scale=MatchLowercase,
 	ItalicFont = FiraSans-ExtraLightItalic.otf]
-\newfontfamily\UltraLig{FiraSans-UltraLight.otf}
-	[Scale=MatchLowercase,
+\newfontfamily\UltraLig{FiraSans-UltraLight.otf}[
 	Path=fonts/,
+	Scale=MatchLowercase,
 	ItalicFont = FiraSans-UltraLightItalic.otf]
-\newfontfamily\Medium{FiraSans-Medium.otf}
-	[Scale=MatchLowercase,
+\newfontfamily\Medium{FiraSans-Medium.otf}[
 	Path=fonts/,
+	Scale=MatchLowercase,
 	ItalicFont = FiraSans-MediumItalic.otf]
-\newfontfamily\Book{FiraSans-Book.otf}
-	[Scale=MatchLowercase,
+\newfontfamily\Book{FiraSans-Book.otf}[
 	Path=fonts/,
+	Scale=MatchLowercase,
 	BoldFont = FiraSans-SemiBold.otf,
 	ItalicFont = FiraSans-BookItalic.otf,
 	BoldItalicFont = FiraSans-SemiBoldItalic.otf]
-\newfontfamily\Charter{Charter-Reg.otf}
-	[Path=fonts/,
+\newfontfamily\Charter{Charter-Reg.otf}[
+	Path=fonts/,
 	Scale=MatchLowercase,
 	Mapping=tex-text,
 	Numbers={Proportional},
@@ -95,8 +96,7 @@ BoldItalicFont = Charter-BoldIt.otf]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %             OTHERS             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[utf8]{inputenc}
-\usepackage[table,xcdraw]{xcolor}
+\usepackage[table,xcdraw,usenames,dvipsnames]{xcolor}
 \usepackage{xfrac}
 \usepackage{amsmath}
 \usepackage{graphicx}
