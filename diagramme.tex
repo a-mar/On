@@ -1,0 +1,76 @@
+% PGFPLOTS BASE PLOT STYLES
+% ADAPTED FROM: https://github.com/matze/mtheme
+
+\pgfplotsset{
+  compat=1.9,
+  mbaseplot/.style={
+    legend style={
+      draw=white,
+      fill=white,
+      cells={anchor=west},
+    },
+    axis line style={cwcBlue575}, %
+    every axis label/.append style ={cwcBlue575},
+    every tick label/.append style={cwcBlue575},
+    x tick label style={
+      font=\footnotesize
+    },
+    y tick label style={
+      font=\footnotesize
+    },
+    legend style={
+      font=\footnotesize
+    },
+    tick label style={/pgf/number format/assume math mode=true},
+    major grid style={white, thick},  %FOR TUFTE-STYLE PLOTS
+    axis on top,
+  },
+  mlineplot/.style={
+    mbaseplot,
+    xmajorgrids=false,
+    ymajorgrids=false,
+    axis x line*=bottom,
+    axis y line*=left,
+    legend style={
+      cells={anchor=west},
+      draw=white,
+    },
+    cycle list name=mlineplot cycle,
+  },
+  mbarplot base/.style={
+    mbaseplot,
+    bar width=6pt,
+    axis y line*=none,
+    axis x line*=bottom,
+  },
+  mbarplot/.style={
+    mbarplot base,
+    ybar,
+    xmajorgrids=false,
+    ymajorgrids,
+    major grid style={white,very thick},
+    area legend,
+    legend image code/.code={%
+      \draw[#1] (0cm,-0.1cm) rectangle (0.15cm,0.1cm);
+    },
+    every node near coord/.style={cwcdblue,
+    /pgf/number format/assume math mode=true,
+    font=\tiny},
+    cycle list name=mbarplot cycle,
+  },
+  horizontal mbarplot/.style={
+    mbarplot base,
+    xmajorgrids=false,
+    ymajorgrids=false,
+    xbar stacked,
+    area legend,
+    legend image code/.code={%
+      \draw[#1] (0cm,-0.1cm) rectangle (0.15cm,0.1cm);
+    },
+    cycle list name=mbarplot cycle,
+  },
+  disable thousands separator/.style={
+    /pgf/number format/.cd,
+      1000 sep={}
+  },
+}
