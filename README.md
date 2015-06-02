@@ -4,7 +4,7 @@ and shenanigans.
 
 I'm obviously new to this. :P
 
-## Sample documents
+## Sample documents (thesis)
   Sample 1: https://goo.gl/pplnfi
 
   Sample 2: https://goo.gl/rrWSch
