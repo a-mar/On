@@ -1,0 +1,174 @@
+%----------------------------------%
+%           TITLE PAGE             %
+%----------------------------------%
+
+\hypertarget{TitlePage}{}
+\include{TitlePage}
+\bookmark[dest=TitlePage]{Title Page}
+
+\begin{spacing}{1}
+\begin{titlepage}
+\begin{center}
+\vspace*{9pt}
+{\Medium\huge Witty catch-phrase:\\\smallskip Length-enhanced superlative verbiage with prolixity of/or/on\\\bigskip an obscure topic few people care about\\[3.5cm]}
+\LARGE INSERT NAME HERE\\[2cm]
+{\LARGE Submitted in partial fulfilment of the requirements for the degree of Doctor of Philosophy\\
+\vfill
+\today\\
+\vspace{37pt}
+School of Botany\\
+The University of Melbourne}
+\vfill
+\end{center}
+\end{titlepage}
+\end{spacing}
+
+
+%----------------------------------%
+%          ABSTRACT PAGE           %
+%----------------------------------%
+
+\setcounter{page}{1}
+\pagenumbering{roman}
+\chapter*{\vspace*{-0.5cm}Abstract}
+\phantomsection
+\addcontentsline{toc}{chapter}{\textbf{Abstract}}
+\Minion
+\lipsum
+
+
+%----------------------------------%
+%           DECLARATION            %
+%----------------------------------%
+%\newpage
+\chapter*{\vspace*{-0.5cm}Declaration}
+\phantomsection
+\addcontentsline{toc}{chapter}{\textbf{Declaration}}
+\Minion
+I hereby declare that the work presented in this thesis is to the best of my knowledge and belief, original, except as acknowledged in the text, and that the material has not been submitted, either in whole or in part, for a degree thesis of any other university.
+
+I also declare that the current thesis is fewer than 100,000 words in length, exclusive of tables, figures, bibliographies, and appendices.
+\vspace{2cm}
+\begin{table}[!ht]
+\Minion
+\renewcommand\arraystretch{2}
+\begin{tabular}{ll}
+Print Name:	&	INSERT NAME HERE!!!	\\
+Signature:	&	INSERT SIGNATURE HERE!!!	\\
+Date:	&	\today	\\
+\end{tabular}
+\end{table}
+
+
+%----------------------------------%
+%         ACKNOWLEDGEMENT          %
+%----------------------------------%
+
+%\newpage
+\phantomsection\addcontentsline{toc}{chapter}{\textbf{Acknowledgements}}
+\chapter*{\vspace*{-0.5cm}\ackname}
+\lipsum 
+%\newpage
+
+
+%----------------------------------%
+%             GLOSSARY             %
+%----------------------------------%
+
+%\newpage
+\cleardoublepage\phantomsection\addcontentsline{toc}{chapter}{\textbf{Abbreviations}}
+        \newacronym{CO2}{\ce{CO2}}{\firstchar{C}arbon dioxide}
+        \newacronym{RCPs}{RCPs}{Representative Concentration Pathways}
+        \newacronym{SRES}{SRES}{Special Report on Emissions Scenarios}
+        \newacronym{GHGs}{GHGs}{\firstchar{G}reenhouse gases}
+        \newacronym{IPCC}{IPCC}{Intergovernmental Panel on Climate Change}
+        \newacronym{CGE}{CGE}{\firstchar{C}omputable general equilibrium}
+        \newacronym{OECD}{OECD}{Organisation for Economic Co-operation and Development }
+\begin{spacing}{1}
+\glsaddall
+\printglossary[title={\glossyname}]
+\end{spacing}
+%\newpage
+
+
+%----------------------------------%
+%        TABLE OF CONTENTS         %
+%----------------------------------%
+
+%\newpage
+\cleardoublepage\phantomsection\addcontentsline{toc}{chapter}{\textbf{Table of Contents}}
+\pagestyle{plain}
+\begin{spacing}{1}
+        \tableofcontents
+\end{spacing}
+%\newpage
+
+
+%----------------------------------%
+%          LIST OF TABLES          %
+%----------------------------------%
+
+%\newpage
+\cleardoublepage\phantomsection\addcontentsline{toc}{chapter}{\textbf{List of Tables}}
+\begin{spacing}{1}
+	\listoftables
+\end{spacing}
+%\newpage
+
+
+%----------------------------------%
+%         LIST OF FIGURES          %
+%----------------------------------%
+
+%\newpage
+\cleardoublepage\phantomsection\addcontentsline{toc}{chapter}{\textbf{List of Figures}}
+\begin{spacing}{1}
+	\listoffigures
+\end{spacing}
+\newpage
+
+
+%----------------------------------%
+%           APPENDICES             %
+%----------------------------------%
+
+\begin{appendices}
+\chapter{The Title of Appendix A}
+  \section{Appendix A subsection 1}
+  \section{Appendix A subsection 2}
+Here's an example of a bibliographic entry. This is a journal article.
+\begin{verbatim}
+@article{Naoi2009,
+   author = {Naoi, Michio and Seko, Miki and Sumita, Kazuto},
+   title = {{Earthquake risk and housing prices in Japan:
+Evidence before and after massive earthquakes}},
+   journal = {Regional Science and Urban Economics},
+   volume = {39},
+   number = {6},
+   pages = {658--669},
+   ISSN = {0166--0462},
+   DOI = {10.1016/j.regsciurbeco.2009.08.002},
+   year = {2009}}
+\end{verbatim}
+\chapter{El T\'itulo de Appendix B}
+  \section{Appendix B subsection 1}
+  \section{Appendix B subsection 2}
+        
+\chapter{Der Titel von Appendix C}
+  \section{Appendix C subsection 1}
+  \section{Appendix C subsection 2}
+\end{appendices}
+
+
+%----------------------------------%
+%            REFERENCES            %
+%----------------------------------%
+
+\newpage
+\cleardoublepage\phantomsection\addcontentsline{toc}{chapter}{\textbf{References}}
+\begin{spacing}{1}
+        \bibliographystyle{apacite}
+        \Minion
+        \setlength\bibitemsep{\baselineskip}
+        \bibliography{mybib.bib}
+\end{spacing}
