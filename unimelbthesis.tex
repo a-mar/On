@@ -1,9 +1,14 @@
 %==================================%
 %             PREAMBLE             %
 %==================================%
-\documentclass[a4paper,11pt]{report}
+\documentclass[a4paper,12pt]{report}
 \renewcommand*{\familydefault}{\sfdefault}
-\usepackage[hmarginratio={1:1},vscale=0.79,footskip=1.1truecm]{geometry}
+\usepackage[
+	hmarginratio={11:10},
+    vmarginratio={10:11},
+	vscale=0.78,
+    footskip=1.1truecm,
+    ]{geometry}
 \usepackage[english]{babel}
 \usepackage[UKenglish]{isodate}
 \cleanlookdateon
@@ -25,6 +30,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[utf8]{inputenc}
 \usepackage[no-math]{fontspec}
+\usepackage{textcase}
 \setmainfont{Charter-Reg.otf}[
 Path = fonts/,
 BoldFont = Charter-Bold.otf,
@@ -35,24 +41,41 @@ BoldItalicFont = Charter-BoldIt.otf]
 \setsansfont{FiraSans-Light.otf}[
 	Path=fonts/,
 	Scale=MatchLowercase,
+    	Mapping=tex-text,
+    	SmallCapsFeatures={
+    		LetterSpace=4,
+    		Numbers={Proportional,OldStyle},
+        	Letters=UppercaseSmallCaps},
 	BoldFont = FiraSans-Regular.otf,
 	ItalicFont = FiraSans-LightItalic.otf,
 	BoldItalicFont = FiraSans-Italic.otf]
 \newfontfamily\ExtraLig{FiraSans-ExtraLight.otf}[
 	Path=fonts/,
 	Scale=MatchLowercase,
+    Mapping=tex-text,
 	ItalicFont = FiraSans-ExtraLightItalic.otf]
 \newfontfamily\UltraLig{FiraSans-UltraLight.otf}[
 	Path=fonts/,
 	Scale=MatchLowercase,
+    Mapping=tex-text,
 	ItalicFont = FiraSans-UltraLightItalic.otf]
 \newfontfamily\Medium{FiraSans-Medium.otf}[
 	Path=fonts/,
 	Scale=MatchLowercase,
+	Mapping=tex-text,
+	SmallCapsFeatures={
+    		LetterSpace=2,
+        	Numbers={Proportional,OldStyle},
+        	Letters=UppercaseSmallCaps},
 	ItalicFont = FiraSans-MediumItalic.otf]
 \newfontfamily\Book{FiraSans-Book.otf}[
 	Path=fonts/,
 	Scale=MatchLowercase,
+    	Mapping=tex-text,
+    	SmallCapsFeatures={
+    		LetterSpace=-2,
+        	Numbers={Proportional,OldStyle},
+        	Letters=UppercaseSmallCaps},
 	BoldFont = FiraSans-SemiBold.otf,
 	ItalicFont = FiraSans-BookItalic.otf,
 	BoldItalicFont = FiraSans-SemiBoldItalic.otf]
@@ -68,6 +91,10 @@ BoldItalicFont = Charter-BoldIt.otf]
 	Path=fonts/,
 	Scale=MatchLowercase,
 	Mapping=tex-text,
+    	SmallCapsFeatures={
+    		LetterSpace=-1.5,
+        	Numbers={Proportional,OldStyle},
+        	Letters=UppercaseSmallCaps},
 	Numbers={Proportional},
 	BoldFont=MinionPro-Bold.otf,
 	ItalicFont=MinionPro-It.otf,
@@ -112,27 +139,28 @@ BoldItalicFont = Charter-BoldIt.otf]
 
 
 \titleformat{name=\chapter,numberless}[display]
-	{\Medium\huge}
-	{}{0em}{}
+	{\Book\Huge}
+    {}{0em}{\scshape}
 \titleformat{\chapter}[display]
-	{\Medium\Large\filcenter\sffamily}
+	{\Book\Large\filcenter\sffamily}
 	{\vspace{1pc}%
- 	\Medium\LARGE\MakeUppercase{\chaptertitlename}~\thechapter}
+ 	\normalfont\huge\scshape{\chaptertitlename}~\thechapter}
 	{3pc}
-	{\Medium\Huge}
+	{\Minion\Huge\scshape}
 	[\vspace*{\fill}\newpage]
 \titleformat{\section}[block]
-	{\raggedright\Medium\huge}
-	{\thesection}{0.9em}{}
+	{\raggedright\Book\huge\scshape}
+	{\thesection}{0.5em}{\scshape}
 \titleformat{\subsection}[block]
-	{\raggedright\Medium\LARGE}
-	{\thesubsection}{0.9em}{}
+	{\raggedright\Book\LARGE\scshape}
+	{\thesubsection}{0.5em}{}
 \titleformat{\subparagraph}
-	{\Medium\Large}
+	{\Book\Large}
 	{\thesubparagraph}{1em}{}
 
-\titlespacing*{name=\chapter,numberless}{0pt}{-2cm}{30pt}
-
+\titlespacing*{name=\chapter,numberless}{0pt}{-2.4cm}{20pt}
+%\titlespacing*{\section} {0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+%\titlespacing*{\subsection} {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
 \titlecontents{chapter} 
 [2.3em]                 % adjust left margin
@@ -144,7 +172,7 @@ BoldItalicFont = Charter-BoldIt.otf]
 \makeatletter
 \titlecontents{chapter}%
  [0em]% 
- {\addvspace{1.5em}}%
+ {\addvspace{1.4em}}%
  {\bfseries\@chapapp\ \thecontentslabel\quad}% 
  {\hspace{-0em}}% 
  {\hfill\contentspage}% 
@@ -184,9 +212,9 @@ BoldItalicFont = Charter-BoldIt.otf]
 \addto\captionsenglish{\renewcommand*{\listfigurename}{List of Figures}}
 \addto\captionsenglish{\renewcommand*{\listtablename}{List of Tables}}
 \newcommand*{\glossyname}{Abbreviations}
-\addto\captionsenglish{\renewcommand{\glossyname}{\Medium\huge{Abbreviations}}}
+\addto\captionsenglish{\renewcommand{\glossyname}{\Book\Huge{Abbreviations}}}
 \newcommand*{\ackname}{Acknowledgements}
-\addto\captionsenglish{\renewcommand{\ackname}{\Medium\huge{Acknowledgements}}}
+\addto\captionsenglish{\renewcommand{\ackname}{\Book\Huge{Acknowledgements}}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -196,7 +224,8 @@ BoldItalicFont = Charter-BoldIt.otf]
 \setlength{\parskip}{1.3\baselineskip}
 \usepackage{setspace}
 \usepackage{leading}
-\leading{13.8pt}
+%\leading{13.8pt}
+\leading{14.4pt}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -232,10 +261,10 @@ BoldItalicFont = Charter-BoldIt.otf]
         linktoc=all, breaklinks=true]{hyperref}
 \hypersetup{
 	colorlinks,
-	linkcolor={green},  %CHANGE TO BLACK WHEN DONE
-	citecolor={blue}, %CHANGE TO BLACK WHEN DONE
+	linkcolor={green},		%CHANGE TO BLACK WHEN DONE
+	citecolor={blue},	%CHANGE TO BLACK WHEN DONE
 	urlcolor={red},
-	pdfauthor={INSERT NAME HERE},
+	pdfauthor={Insert Name Here},
 	pdfkeywords={{INSERT}, {KEY}, {WORDS}}}
 \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
 \usepackage{bookmark}
@@ -250,6 +279,7 @@ BoldItalicFont = Charter-BoldIt.otf]
 
 \usepackage[document]{ragged2e}
 
+\input{macros.tex}
 
 %==================================%
 %              DOCUMENT            %
@@ -257,7 +287,7 @@ BoldItalicFont = Charter-BoldIt.otf]
 
 \begin{document}
 \verbatimfont{\Mono}
-\fontsize{11.5}{13.8}\selectfont
+%\fontsize{11.5}{13.8}\selectfont
 \frenchspacing
 \RaggedRight
 \input{backfront/frontmatter}
