@@ -1,0 +1,32 @@
+%Bar graph Water abstractions per capita (m3/capita)
+%data from http://dx.doi.org/10.1787/factbook-2014-en
+
+\begin{figure}[H]
+%\centering
+\begin{tikzpicture}
+  \begin{axis}[
+    mbarplot,
+    bar width = 8.4pt,
+    x=0.489cm,
+    width=\textwidth,
+    height=0.65\textwidth,
+    enlargelimits=0.075,
+    legend style={at={(0.5,-0.2)},
+      anchor=north,legend columns=-1},
+    %ylabel={m\txup{3}/capita},
+    ymax=1400,
+    symbolic x coords={Slovakia, Denmark, UK, Ireland, Czech Republic, Israel, Sweden, Poland, Germany, Slovenia, France, Hungary, Belgium, Australia, Japan, Netherlands, Norway, Turkey, Spain, Mexico, Greece, Portugal, Canada, \nzed, Estonia, OECD Total},
+    xtick=data,
+    xticklabel style={rotate=49,
+      	anchor=north east,
+		/pgf/number format/precision=3,
+		/pgf/number format/fixed,
+		/pgf/number format/fixed zerofill,},
+    %nodes near coords, 
+    %nodes near coords align={vertical}
+    ]
+    \addplot[draw = cwcBlue4,fill = cwcBlue4]coordinates{(Slovakia,110) (Denmark,120) (UK,140) (Ireland,170) (Czech Republic,180) (Israel,180) (Sweden,290) (Poland,310) (Germany,400) (Slovenia,410) (France,530) (Hungary,540) (Belgium,570) (Australia,630) (Japan,640) (Netherlands,640) (Norway,640) (Turkey,640) (Spain,730) (Mexico,750) (Greece,850) (Portugal,870) (Canada,1150) (\nzed,1190) (Estonia,1400) (OECD Total,840)};
+    \end{axis}
+\end{tikzpicture}
+\vspace{-0.8cm}
+\end{figure}
