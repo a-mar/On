@@ -1,0 +1,36 @@
+%BAR GRAPH
+%Agricultural support in the OECD
+%Producer support estimate percentage share of gross farm receipts for countries in the OECD (2013)
+%Data from http://dx.doi.org/10.1787/6ea85c58-en
+
+\begin{figure}[H]
+%\centering
+\begin{tikzpicture}
+  \begin{axis}[
+    mbarplot,
+    bar width = 14.5pt,
+    x=0.85cm,
+    width=1.03\textwidth,
+    height=271.69pt,
+    enlargelimits=0.083,
+    legend style={at={(0.5,-0.2)},
+      anchor=north,legend columns=-1},
+    symbolic x coords={New Zealand, Australia, Chile, USA, Israel, Canada, Mexico, Turkey, EU 27, Iceland, Switzerland, South Korea, Norway, Japan, OECD Total},
+    xtick=data,
+ 	x tick label style={rotate=49,anchor=north east},
+    ymax=55.61,
+    yticklabel={\pgfmathprintnumber{\tick}\%},
+    %nodes near coords, 
+    %every node near coord/.style={cwcdblue,
+    %/pgf/number format/assume math mode=true,
+    %/pgf/number format/fixed,
+    %/pgf/number format/fixed zerofill,
+    %/pgf/number format/precision=2,
+    %font=\scriptsize},
+	%nodes near coords align={vertical}
+    ]
+    \addplot[draw = cwcGreen1,fill = cwcGreen1]coordinates{(New Zealand,0.53) (Australia,1.92) (Chile,2.72) (USA,7.44) (Israel,8.08) (Canada,11.60) (Mexico,12.3) (Turkey,19.18) (EU 27,19.80) (Iceland,41.33) (Switzerland,49.40) (South Korea,52.50) (Norway,52.86) (Japan,55.61) (OECD Total,18.23)};
+    \end{axis}
+\end{tikzpicture}
+%\vspace{-0.4cm}
+\end{figure}
