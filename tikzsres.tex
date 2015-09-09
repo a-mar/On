@@ -1,0 +1,106 @@
+%schematic diagram climate SRES climate scenarios
+
+%COLOURS used
+\definecolor{coralpink}{RGB}{255,112,113}
+\definecolor{applegrin}{RGB}{164,216,106}
+\definecolor{A1c}{RGB}{201,107,105}
+\definecolor{A2c}{RGB}{228,182,182}
+\definecolor{B1c}{RGB}{137,172,70}
+\definecolor{B2c}{RGB}{194,214,155}
+\definecolor{whitegrey}{RGB}{217,217,217}
+\definecolor{greygrey}{RGB}{190,190,190}
+\definecolor{cwcBlue1}{RGB}{30,108,176}
+\definecolor{purplerain}{RGB}{76,12,82}
+\definecolor{cwcBlue4}{RGB}{23,185,194}
+  \colorlet{ghgle2}{purplerain!70!cwcBlue4}
+
+%FIGURE
+\begin{figure}[!h]
+\resizebox{1.005\textwidth}{!}{%
+\centering
+\hspace*{-0.15cm}
+\begin{tikzpicture}[x=2.2cm, y=-1cm, node distance=0 cm, outer sep = 0pt]
+
+\tikzstyle{economic}=[draw=none, rectangle,  minimum height=1cm, minimum width=10cm, fill=coralpink,anchor=south west]
+\tikzstyle{environment}=[draw=none, rectangle,  minimum height=1cm, minimum width=10cm, fill=applegrin,anchor=south west]
+
+\tikzstyle{global}=[draw=none, rectangle, minimum height=0.75cm, minimum width=3cm, fill=greygrey,anchor=south east]
+\tikzstyle{global2}=[draw=none, rectangle, minimum height=0.75cm, minimum width=3cm, fill=greygrey,anchor=south east]
+\tikzstyle{regional}=[draw=none, rectangle, minimum height=0.75cm, minimum width=3cm, fill=whitegrey,anchor=north west]
+\tikzstyle{regional2}=[draw=none, rectangle, minimum height=0.75cm, minimum width=3cm, fill=whitegrey,anchor=north west]
+\tikzstyle{hours}=[rectangle,draw=none, minimum width=5cm, anchor=north west,text centered, text width=10.7em]
+
+\tikzstyle{1hour}=[hours,minimum height=1.5cm]
+\tikzstyle{B1}=[1hour,fill=B1c]
+\tikzstyle{A1}=[1hour,fill=A1c]
+\tikzstyle{A2}=[1hour,fill=A2c]
+\tikzstyle{B2}=[1hour,fill=B2c]
+
+\node[economic,align=center] (econ) at (1,8) {\Medium{\small{Economic}}\\};
+\node[environment,align=center] (envt) at (1,12) {\\\vspace*{-0.2cm}\Medium{\small{Environmental}}};
+
+\node[global, rotate=90, shape border rotate=180,align=center] (global) at (0.7,8) {\Medium{\small{Global}}};
+\node[global2, rotate=90, shape border rotate=180,align=center] (global2) at (1,8) {\\};
+\node[regional,rotate=-90, shape border rotate=180,align=center] (region) at (6.226,8) {\Medium{\small{Regional}}};
+\node[regional2,rotate=-90, shape border rotate=180,align=center] (region2) at (5.886,8) {\\};
+
+\node[A1,align=center] at (1,8) {\footnotesize{
+	\begin{tabular}[c]{@{}c@{}}
+    {\Medium{A1}}\\
+    (A1T, A1B, A1FI)\\
+    {\textit{Rapid global economic growth}}
+    \end{tabular}}};
+\node[A2,align=center] at (3.2725,8) {\footnotesize{
+	\begin{tabular}[c]{@{}c@{}}
+    {\Medium{A2}}\\
+    {\textit{Regionally-oriented}}\\
+    {\textit{economic growth}}
+    \end{tabular}}};
+\node[B1,align=center] at (1,9.5) {\footnotesize{
+	\begin{tabular}[c]{@{}c@{}}
+    {\Medium{B1}}\\
+    {\textit{Global environmental}}\\
+    {\textit{sustainability}}
+    \end{tabular}}};
+\node[B2,align=center] at (3.2725,9.5) {\footnotesize{
+	\begin{tabular}[c]{@{}c@{}}
+    {\Medium{B2}}\\
+    {\textit{Regionally-oriented}}\\
+    {\textit{environmental sustainability}}
+    \end{tabular}}};
+[every node/.append style={draw=none, top color=bloo, single arrow}]
+\node  at (3.27,11.1969) [
+    bottom color=ghgle2,
+    top color=cwcBlue1,
+    single arrow,
+    minimum height=0.5cm,
+    inner sep=0.1cm,
+    rotate=-90
+] {};
+\node  at (3.269,7.8038) [
+    bottom color=cwcBlue1,
+    top color=ghgle2,
+    single arrow,
+    minimum height=0.5cm,
+    inner sep=0.1cm,
+    rotate=90
+] {};
+\node  at (0.89,9.5) [
+    bottom color=cwcBlue4,
+    top color=ghgle2,
+    single arrow,
+    minimum height=0.6cm,
+    inner sep=0.1cm,
+    rotate=180
+] {};
+\node  at (5.6575,9.5) [
+    bottom color=ghgle2,
+    top color=cwcBlue4,
+    single arrow,
+    minimum height=0.6cm,
+    inner sep=0.1cm,
+    rotate=360
+] {};
+\end{tikzpicture}
+}
+\end{figure}
