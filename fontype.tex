@@ -1,0 +1,132 @@
+%FONTSPEC FONTS used in thesis
+\setmainfont{CHR55.otf}[
+	Path=fonts/,
+    Numbers={Proportional},
+    BoldFont=Charter-Bold.otf,
+    ItalicFont=Charter-It.otf,
+    BoldItalicFont=Charter-BoldIt.otf]
+
+\setsansfont{FiraSans-Book.otf}[
+	Scale=MatchUppercase,
+    Path=fonts/,
+    Mapping=tex-text,
+    SmallCapsFeatures={
+    	LetterSpace=4,
+    	Numbers={Proportional,OldStyle},
+        Letters=UppercaseSmallCaps
+        },
+    Numbers={Proportional},
+    BoldFont=FiraSans-Medium.otf,
+    ItalicFont=FiraSans-BookItalic.otf,
+    BoldItalicFont=FiraSans-MediumItalic.otf]
+
+\newfontfamily\ExtraLig{FiraSans-ExtraLight.otf}[
+	Scale=MatchLowercase,
+    Path=fonts/,
+    Numbers={Proportional},
+    SmallCapsFeatures={
+    	Letters=UppercaseSmallCaps},
+    ItalicFont=FiraSans-ExtraLightItalic.otf]
+
+\newfontfamily\UltraLig{FiraSans-UltraLight.otf}[
+	Scale=MatchLowercase,
+    Path=fonts/,
+    Numbers={Proportional},
+    SmallCapsFeatures={
+    	Letters=UppercaseSmallCaps},
+    ItalicFont=FiraSans-UltraLightItalic.otf]
+
+\newfontfamily\LLig{FiraSans-Light.otf}[
+	Scale=MatchLowercase,
+    Path=fonts/,
+    Numbers={Proportional},
+    SmallCapsFeatures={
+    	LetterSpace=2,
+    	Letters=UppercaseSmallCaps},
+    ItalicFont=FiraSans-LightItalic.otf]
+
+\newfontfamily\Medium{FiraSans-Medium.otf}[
+	Scale=MatchLowercase,
+    Path=fonts/,
+    Mapping=tex-text,
+    SmallCapsFeatures={
+    	LetterSpace=-2,
+    	Numbers={Proportional,OldStyle},
+        Letters=UppercaseSmallCaps
+        },
+    Numbers={Proportional},
+    ItalicFont=FiraSans-MediumItalic.otf]
+
+\newfontfamily\MedCap{FiraSans-Medium.otf}[
+	Scale=MatchUppercase,
+    Path=fonts/,
+    Mapping=tex-text,
+    SmallCapsFeatures={
+    	LetterSpace=-2,
+    	Numbers={Proportional,OldStyle},
+        Letters=UppercaseSmallCaps
+        },
+    Numbers={Proportional},
+    ItalicFont=FiraSans-MediumItalic.otf]
+
+\newfontfamily\Book{FiraSans-Book.otf}[
+	Scale=MatchLowercase,
+    Path=fonts/,
+    Mapping=tex-text,
+    SmallCapsFeatures={
+    	LetterSpace=-2,
+    	Numbers={Proportional,OldStyle},
+        Letters=UppercaseSmallCaps
+        },
+    BoldFont=FiraSans-SemiBold.otf,
+    ItalicFont=FiraSans-BookItalic.otf,
+    BoldItalicFont=FiraSans-SemiBoldItalic.otf]
+
+\newfontfamily\BookTitle{FiraSans-Regular.otf}[
+	Scale=MatchLowercase,
+    Path=fonts/,
+    Mapping=tex-text,
+    Numbers={Proportional,OldStyle},
+    SmallCapsFeatures={
+    	LetterSpace=-2.3,
+    	Numbers={Proportional,OldStyle},
+        Letters=UppercaseSmallCaps
+        },
+    ItalicFont=FiraSans-Italic.otf]
+
+\newfontfamily\BookTable{FiraSans-Book.otf}[
+	Scale=MatchLowercase,
+    Path=fonts/,
+    Mapping=tex-text,
+    Numbers={Proportional},
+    SmallCapsFeatures={
+    	LetterSpace=4,
+    	Numbers={Proportional,OldStyle},
+        Letters=UppercaseSmallCaps,
+        Scale=MatchUppercase
+        },
+    BoldFont=FiraSans-Medium.otf,
+    ItalicFont=FiraSans-BookItalic.otf,
+    BoldItalicFont=FiraSans-MediumItalic.otf]
+
+\newfontfamily\Mono{FiraMono-Regular.otf}[
+	Path=fonts/,
+    CharacterWidth={Proportional},
+    Scale=MatchLowercase]
+
+\newfontfamily\Charter{CHR55.otf}[
+	Path=fonts/,
+    Scale=MatchLowercase,
+    Mapping=tex-text,
+    Numbers={Proportional},
+    Ligatures={Common,Required,Contextual},
+    BoldFont=Charter-Bold.otf,
+    ItalicFont=Charter-It.otf,
+    BoldItalicFont=Charter-BoldIt.otf]
+%\newfontfamily\Mono{SourceCodePro-Regular.otf}[Path=fonts/, Scale=MatchLowercase]
+\defaultfontfeatures{Mapping=tex-text, Scale=MatchLowercase}
+
+
+%BITSTREAM CHARTER
+%\newcommand*{\mifont}{\usefont{T1}{bch}{m}{n}\selectfont}{\par}
+\newcommand*{\myfont}{\fontfamily{cmr}\selectfont}
