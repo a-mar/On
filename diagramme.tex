@@ -2,40 +2,27 @@
 % ADAPTED FROM: https://github.com/matze/mtheme
 
 \pgfplotsset{
-  compat=1.9,
+  compat=newest,
   mbaseplot/.style={
-    legend style={
-      draw=white,
-      fill=white,
-      cells={anchor=west},
-    },
-    axis line style={cwcBlue575}, %
-    every axis label/.append style ={cwcBlue575},
+    axis line style={cwcBlue575},
+    every axis label/.append style ={cwcBlue575, /pgf/number format/assume math mode=true},
     every tick label/.append style={cwcBlue575},
-    x tick label style={
-      font=\footnotesize
-    },
-    y tick label style={
-      font=\footnotesize
-    },
-    legend style={
-      font=\footnotesize
-    },
+    ylabel style={overlay},
+    x tick label style={font=\fnine},
+    y tick label style={overlay,font=\fnine},
+    legend style={font=\fnine},
     tick label style={/pgf/number format/assume math mode=true},
-    major grid style={white, thick},  %FOR TUFTE-STYLE PLOTS
-    axis on top,
   },
   mlineplot/.style={
     mbaseplot,
-    xmajorgrids=false,
-    ymajorgrids=false,
+    tick label style={/pgf/number format/assume math mode=true},
+    axis y line*=none,
     axis x line*=bottom,
-    axis y line*=left,
-    legend style={
-      cells={anchor=west},
-      draw=white,
-    },
-    cycle list name=mlineplot cycle,
+    xmajorgrids=false,
+    ymajorgrids,
+    major grid style={thin},
+    y axis line style={opacity=0},
+    tickwidth=0pt,
   },
   mbarplot base/.style={
     mbaseplot,
@@ -45,10 +32,13 @@
   },
   mbarplot/.style={
     mbarplot base,
+    axis on top,
     ybar,
     xmajorgrids=false,
     ymajorgrids,
     major grid style={white,very thick},
+    y axis line style={opacity=0},
+    tickwidth=0pt,
     area legend,
     legend image code/.code={%
       \draw[#1] (0cm,-0.1cm) rectangle (0.15cm,0.1cm);
@@ -58,16 +48,20 @@
     font=\tiny},
     cycle list name=mbarplot cycle,
   },
-  horizontal mbarplot/.style={
+  embarplot/.style={
     mbarplot base,
-    xmajorgrids=false,
+    axis on top,
+    xbar,
     ymajorgrids=false,
-    xbar stacked,
+    xmajorgrids,
+    major grid style={white,very thick},
+    y axis line style={opacity=0},
+    x axis line style={opacity=0},
+    tickwidth=0pt,
     area legend,
     legend image code/.code={%
       \draw[#1] (0cm,-0.1cm) rectangle (0.15cm,0.1cm);
     },
-    cycle list name=mbarplot cycle,
   },
   disable thousands separator/.style={
     /pgf/number format/.cd,
