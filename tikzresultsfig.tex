@@ -1,0 +1,67 @@
+\resizebox{418.25pt}{!}{%
+\begin{tikzpicture}[scale=1]
+\tikzstyle{jahr} = [rectangle, rounded corners, align=center, draw=none]
+\tikzstyle{nicht} = [jahr, text width=25em, inner sep=7pt]
+\tikzstyle{nacht} = [jahr, text width=30em, inner sep=1pt]
+\tikzstyle{nein} = [jahr, text width=5em, inner sep=5pt]
+\tikzstyle{gut} = [jahr, text width=7em, inner sep=5pt]
+\tikzstyle{line} = [ultra thick, draw=red, -latex']
+
+\fill[rounded corners, left color=pms814!60!TolColor3!70!f8cpink!75!white, right color=cwcBlue5!75!black, shading angle=-123] (-3,-5.6) rectangle (9.5,4.4);
+\fill[rounded corners, left color=bgteal!75!black, right color=cwcBlue4, shading angle=123] (-3,-11) rectangle (9.5,-6.2);
+\fill[rounded corners,white] (-1.4,-1.3) rectangle (9.1,4);
+\fill[rounded corners,white] (-1.4,-5.2) rectangle (9.1,-2.4);
+\fill[rounded corners,white] (4,-6.6) rectangle (9.1,-10.6);
+\fill[rounded corners,white] (-1.4,-6.6) rectangle (3.75,-10.6);
+\node[nacht,yshift=-0.58cm,xshift=-2.2cm,rotate=90](mgtdec){\color{white}\Huge\textsc{\textbf{Management Decisions}}};
+\node[gut,yshift=-8.9cm,xshift=-2.2cm,rotate=90](profits){\color{white}\Huge\textsc{\textbf{Profits}}};
+
+\scoped{
+\fill[rounded corners,cwcYellow,opacity=0.3] (-1.4,-1.3) rectangle (9.1,4);}
+\node[nein, fill=pms809](fert1){\large{\textbf{No\\fertiliser}}\\F\,000};
+\node[nein, fill=pms802!50!pms809, right = 0.34cm of fert1](fert2){\large{\textbf{Limited\\fertiliser}}\\F\,059};
+\node[nein, fill=pms368!50!pms802, right = 0.34cm of fert2](fert3){\large{\textbf{Average\\fertiliser}}\\F\,131};
+\node[nein, fill=cwcBgreen1!65!pms368, right = 0.34cm of fert3](fert4){\large{\textbf{High\\fertiliser}}\\F\,203};
+\node[nicht, fill=vividbrown, above = 1cm of fert2.north east, xshift=0.15cm](stockert){\large{\textbf{Stocking Rate}}\\S\,1.0 -- S\,4.5};
+
+\path[line](stockert.south) -- (fert1.north);
+\path[line](stockert.south) -- (fert2.north);
+\path[line](stockert.south) -- (fert3.north);
+\path[line](stockert.south) -- (fert4.north);
+
+\node[above = 1pt of stockert,draw=none,rectangle,text width=10cm, align=center](inpfac){\color{vividbrown}\LLig{\huge{\textsc{Input factors}}}};
+
+\scoped{
+\fill[rounded corners,cwcBlue4,opacity=0.23] (-1.4,-5.2) rectangle (9.1,-2.4);}
+\node[nicht, below = 2.6cm of stockert](nicht1){};
+\node[nein, fill=TolColor3, below = 1.9cm of fert1](irrig1){\large{\textbf{No\\irrigation}}\\I\,000};
+\node[nein, fill=cwcBlue4!50!TolColor3, right = 0.34cm of irrig1](irrig2){\large{\textbf{Limited\\irrigation}}\\I\,029};
+\node[nein, fill=cwcBlue4!73!blue, right = 0.34cm of irrig2](irrig3){\large{\textbf{Average\\irrigation}}\\I\,148};
+\node[nein, fill=cwcBlue1!70!blue, right = 0.34cm of irrig3](irrig4){\large{\textbf{High\\irrigation}}\\I\,267};
+
+\path[line](nicht1.south) -- (irrig1.north);
+\path[line](nicht1.south) -- (irrig2.north);
+\path[line](nicht1.south) -- (irrig3.north);
+\path[line](nicht1.south) -- (irrig4.north);
+
+\node[below = 6.3cm of stockert,draw=none,rectangle,text width=10cm, align=center](scena){\color{cwcBlue1}\LLig{\huge{\textsc{Irrigation Scenarios}}}};
+
+\scoped{
+\fill[rounded corners,coralpink,opacity=0.25] (-1.4,-6.6) rectangle (3.75,-10.6);}
+\node[nein, fill=A2c, below = 3cm of irrig1](kaltmilk){\large{\textbf{Present climate}}\\W/out CC};
+\node[nein, fill=A1c, right = 0.17cm of kaltmilk](klimamilk){\large{\textbf{\rcp{2.6}}}\\With\\CC};
+\node[nein,yshift=-7.1cm, xshift=1.2cm, inner sep=7pt](prodmilk){\Large\textbf{Milk}};
+\node[below = 1.6cm of prodmilk, draw=none, rectangle, text width=5cm, align=center](prodn){\color{cwcSalmon}\LLig\huge\textsc{Production}};
+\node[below = 0.1pt of prodn, draw=none, rectangle, text width=5cm, align=center](prodn2){\color{cwcSalmon}\LLig\huge\textsc{outcomes}};
+
+\scoped{
+\fill[rounded corners, TolColor12, opacity=0.25] (4,-6.6) rectangle (9.1,-10.6);}
+\node[nein, fill=pmsb814!60!pms813, below = 3cm of irrig4](klimaghg){\large{\textbf{\rcp{2.6}}}\\With\\CC};
+\node[nein, fill=tol1250, left = 0.17cm of klimaghg](kaltghg){\large{\textbf{Present climate}}\\W/out CC};
+\node[nein,right = 3cm of prodmilk, inner sep=7pt](prodghg){\Large\textbf{GHGs}};
+\node[below = 1.9cm of prodghg, draw=none, rectangle, text width=5cm, align=center](extern){\color{TolColor12}\LLig{\huge{\textsc{Externalities}}}};
+
+\node[nicht, below = 6.5cm of stockert](nicht2){};
+\path[line](nicht2.south) -- (prodghg.north);
+\path[line](nicht2.south) -- (prodmilk.north);
+\end{tikzpicture}}
