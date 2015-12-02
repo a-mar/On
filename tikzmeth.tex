@@ -2,19 +2,23 @@
 %SEE fontype.tex for the font families used
 %SEE cycolores.tex for the colours used
 
-\begin{figure}[H]
-\vspace{0.5cm}
-\centering
-\resizebox{0.95\textwidth}{!}{%
 \begin{tikzpicture}
+\tikzstyle{line} = [ultra thick, pms813, scale=3, ->, >=latex']
+\tikzstyle{linea} = [ultra thick, scale=3, miblu!75!blue, ->, >=latex']
+\tikzstyle{ligne} = [ultra thick, scale=3, pms2735!60!, ->, >=latex']
+\tikzstyle{jahr} = [rectangle, rounded corners, align=center, draw=none]
+\tikzstyle{nicht} = [jahr, text width=10em, inner sep=2.5pt]
+
 %SPHERES
-\fill[rotate around={175:(3.8,2.35)},cwcSalmon,opacity=0.2] (3.8,2.35) ellipse (3.3 and 1.7);
-\fill[rotate around={91:(1.2,-0.04)},cwcBlue4,opacity=0.2] (1.2,-0.04) ellipse (3.9 and 3.5);
-\fill[rotate around={80:(5.65,0.1)},cwcYellow,opacity=0.2] (5.65,0.1) ellipse (3.6 and 3.35);
+\fill[rotate around={175:(3.8,2.35)},cwcSalmon,opacity=0.21] (3.8,2.35) ellipse (3.3 and 1.7);
+\fill[rotate around={91:(1.2,-0.04)},cwcBlue4,opacity=0.21] (1.2,-0.04) ellipse (3.9 and 3.5);
+\fill[rotate around={80:(5.65,0.1)},cwcYellow,opacity=0.21] (5.65,0.1) ellipse (3.6 and 3.35);
 %LABELS
-\node[yshift=3.2cm,xshift=3.75cm,draw=none,circle,text width=2.8cm, align=center](policy){\color{TextFenk}\LLig{\huge{\textsc{Policy analysis}}}};
-\node[yshift=-3cm,xshift=1.1cm,draw=none,circle,text width=2.8cm, align=center](Simulation){\color{cwcBlue1}\LLig{\huge{\textsc{Simulation}}}};
-\node[yshift=-0.1cm,xshift=4.89cm,draw=none,circle,text width=2.8cm, align=center](Economic){\color{cwcGold}\LLig{\huge{\textsc{Economic analysis}}}};
+\node[nicht,yshift=3.3cm,xshift=3.75cm](policy){\color{TextFenk}\LLig{\huge{\textsc{Policy}}}};
+\node[nicht,below = 0.1pt of policy](policy2){\color{TextFenk}\LLig{\huge{\textsc{analysis}}}};
+\node[nicht,yshift=-3cm,xshift=1.3cm](Simulation){\color{cwcBlue1}\LLig{\huge{\textsc{Simulation}}}};
+\node[nicht,yshift=0.19cm,xshift=4.89cm](Economic){\color{bronde}\LLig{\huge{\textsc{Economic}}}};
+\node[nicht,below = 0.1pt of Economic](Economic2){\color{bronde}\LLig{\huge{\textsc{analysis}}}};
 %PARTS
 %\node[yshift=4.5cm,xshift=3cm,draw=parple,ultra thick, circle,text width=1.1cm](mgt){\textbf{\large{Mgt}}};
 \node[yshift=-1.8cm,xshift=-0.6cm,draw=tealblue,ultra thick,circle,text width=1.27cm, align=center](climate){\textbf{Climate}};
@@ -27,16 +31,15 @@
 \node[yshift=-1.5cm,xshift=3.5cm,draw=white,ultra thick, circle,text width=1.1cm, align=center](milk){\textbf{\large{Milk}}};
 \node[yshift=-2.4cm,xshift=6cm,draw=cwcGold,ultra thick, circle,text width=1.1cm, align=center](price){\textbf{Prices}};
 %LINES
-%\path[ultra thick,cwcBlue4,->] (mgt.west) edge [out=180, in=10] (input.north);
-\path[ultra thick,cwcBlue4,->] (climate.east) edge [out=10, in=-110] (dmod.south);
-\path[ultra thick,cwcBlue4,->] (dmod.south east) edge [out=-50, in=180] (milk.west);
-\path[ultra thick,cwcBlue4,->] (cost.east) edge [out=-10, in=100] (profit.north);
-\path[ultra thick,cwcBlue4,->] (input.north east) edge [out=45, in=180] (cost.west);
-\path[ultra thick,cwcBlue4,->] (milk.south east) edge [out=-45, in=180] (price.west);
-\path[ultra thick,cwcBlue4,->] (price.east) edge [out=10, in=-100] (profit.south);
-\path[ultra thick,cwcBlue4,->] (input.west) edge [out=180, in=50] (dmod.north east);
-\path[ultra thick,cwcBlue4,->] (other.south) edge [out=-90, in=180] (dmod.west);
-\path[ultra thick,cwcBlue4,->] (dmod.north west) edge [out=120, in=-180] (ghgs.west);
+\path[line] (ghgs.north east) edge [out=45, in=110] (cost.north west);
+\path[linea] (climate.east) edge [out=10, in=-110] (dmod.south);
+\path[linea] (dmod.south east) edge [out=-50, in=180] (milk.west);
+\path[ligne] (cost.east) edge [out=-10, in=100] (profit.north);
+\path[ligne] (input.north east) edge [out=45, in=180] (cost.west);
+\path[ligne] (milk.south east) edge [out=-45, in=180] (price.west);
+\path[ligne] (price.east) edge [out=10, in=-100] (profit.south);
+\path[linea] (input.west) edge [out=180, in=50] (dmod.north east);
+\path[linea] (other.south) edge [out=-90, in=180] (dmod.west);
+\path[linea] (dmod.north west) edge [out=120, in=-180] (ghgs.west);
 \end{tikzpicture}
-}
-\end{figure}
+
