@@ -3,34 +3,49 @@
 %Producer support estimate percentage share of gross farm receipts for countries in the OECD (2013)
 %Data from http://dx.doi.org/10.1787/6ea85c58-en
 
-\begin{figure}[H]
-%\centering
+pgfplotstableread[header=false, col sep=comma]{
+18.23,OECD Total
+0.53,{\nzed}
+1.92,Australia
+2.72,Chile
+7.44,USA
+8.08,Israel
+11.60,Canada
+12.30,Mexico
+19.18,Turkey
+19.80,EU 27
+41.33,Iceland
+49.40,Switzerland
+52.50,South Korea
+52.86,Norway
+55.61,Japan
+}\agsupport
+
 \begin{tikzpicture}
   \begin{axis}[
-    mbarplot,
-    bar width = 14.5pt,
-    x=0.85cm,
-    width=1.03\textwidth,
-    height=271.69pt,
-    enlargelimits=0.083,
-    legend style={at={(0.5,-0.2)},
-      anchor=north,legend columns=-1},
-    symbolic x coords={New Zealand, Australia, Chile, USA, Israel, Canada, Mexico, Turkey, EU 27, Iceland, Switzerland, South Korea, Norway, Japan, OECD Total},
-    xtick=data,
- 	x tick label style={rotate=49,anchor=north east},
-    ymax=55.61,
-    yticklabel={\pgfmathprintnumber{\tick}\%},
-    %nodes near coords, 
-    %every node near coord/.style={cwcdblue,
-    %/pgf/number format/assume math mode=true,
-    %/pgf/number format/fixed,
-    %/pgf/number format/fixed zerofill,
-    %/pgf/number format/precision=2,
-    %font=\scriptsize},
-	%nodes near coords align={vertical}
+    embarplot,
+    cycle list name=embarplotone,
+    bar width = 11pt,
+    y=0.64cm,
+    height=418.25pt,
+    width=259.32pt,
+    ytick=data,
+    yticklabels from table={\agsupport}{1},
+    xmin=0, xmax=55.61,
+    enlarge y limits={abs=0.7},
+    yticklabels from table={\agsupport}{1},
+    xlabel=\fnine{Percentage support from government},
+    nodes near coords=\pgfmathprintnumber{\pgfplotspointmeta}\,\%, 
+    every node near coord/.style={cwcdblue,
+    /pgf/number format/assume math mode=true,
+    /pgf/number format/fixed,
+    /pgf/number format/fixed zerofill,
+    /pgf/number format/precision=2,
+    font=\scriptsize},
     ]
-    \addplot[draw = cwcGreen1,fill = cwcGreen1]coordinates{(New Zealand,0.53) (Australia,1.92) (Chile,2.72) (USA,7.44) (Israel,8.08) (Canada,11.60) (Mexico,12.3) (Turkey,19.18) (EU 27,19.80) (Iceland,41.33) (Switzerland,49.40) (South Korea,52.50) (Norway,52.86) (Japan,55.61) (OECD Total,18.23)};
+    \addplot table [
+     y expr=-\coordindex, % Use negative coordinate index as y coordinate
+     x index=0 % Use first column as x coordinate
+        ] {\agsupport};
     \end{axis}
 \end{tikzpicture}
-%\vspace{-0.4cm}
-\end{figure}
