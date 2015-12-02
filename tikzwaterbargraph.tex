@@ -1,32 +1,58 @@
 %Bar graph Water abstractions per capita (m3/capita)
 %data from http://dx.doi.org/10.1787/factbook-2014-en
 
-\begin{figure}[H]
-%\centering
+\pgfplotstableread[header=false, col sep=comma]{
+840,OECD Total
+110,Slovakia
+120,Denmark
+140,UK
+170,Ireland
+180,Czech Republic
+180,Israel
+290,Sweden
+310,Poland
+400,Germany
+410,Slovenia
+530,France
+540,Hungary
+570,Belgium
+630,Australia
+640,{Japan, Netherlands, Norway, Turkey}
+730,Spain
+750,Mexico
+850,Greece
+870,Portugal
+1150,Canada
+1190,{\nzed}
+1400,Estonia
+}\waterabstraction
+
 \begin{tikzpicture}
   \begin{axis}[
-    mbarplot,
-    bar width = 8.4pt,
-    x=0.489cm,
-    width=\textwidth,
-    height=0.65\textwidth,
-    enlargelimits=0.075,
-    legend style={at={(0.5,-0.2)},
-      anchor=north,legend columns=-1},
-    %ylabel={m\txup{3}/capita},
-    ymax=1400,
-    symbolic x coords={Slovakia, Denmark, UK, Ireland, Czech Republic, Israel, Sweden, Poland, Germany, Slovenia, France, Hungary, Belgium, Australia, Japan, Netherlands, Norway, Turkey, Spain, Mexico, Greece, Portugal, Canada, \nzed, Estonia, OECD Total},
-    xtick=data,
-    xticklabel style={rotate=49,
-      	anchor=north east,
-		/pgf/number format/precision=3,
-		/pgf/number format/fixed,
-		/pgf/number format/fixed zerofill,},
-    %nodes near coords, 
-    %nodes near coords align={vertical}
+    embarplot,
+    cycle list name=embarplottwo,
+    bar width = 10pt,
+    y=0.51cm,
+    width=268pt,
+    height=418.25pt,
+    ytick=data,
+    yticklabels from table={\waterabstraction}{1},
+    xmin=0, xmax=1400,
+    enlarge y limits={abs=0.7},
+    yticklabels from table={\waterabstraction}{1},
+    xlabel=\fnine{Water abstraction per capita (m\txup{3}\,cap\txup{-1})},
+    nodes near coords=\pgfmathprintnumber{\pgfplotspointmeta}, 
+    every node near coord/.style={cwcdblue,
+    /pgf/number format/assume math mode=true,
+    /pgf/number format/fixed,
+    /pgf/number format/fixed zerofill,
+    /pgf/number format/precision=0,
+    /pgf/number format/1000 sep={},
+    font=\scriptsize},
     ]
-    \addplot[draw = cwcBlue4,fill = cwcBlue4]coordinates{(Slovakia,110) (Denmark,120) (UK,140) (Ireland,170) (Czech Republic,180) (Israel,180) (Sweden,290) (Poland,310) (Germany,400) (Slovenia,410) (France,530) (Hungary,540) (Belgium,570) (Australia,630) (Japan,640) (Netherlands,640) (Norway,640) (Turkey,640) (Spain,730) (Mexico,750) (Greece,850) (Portugal,870) (Canada,1150) (\nzed,1190) (Estonia,1400) (OECD Total,840)};
+    \addplot table [
+     y expr=-\coordindex, % Use negative coordinate index as y coordinate
+     x index=0 % Use first column as x coordinate
+        ] {\waterabstraction};
     \end{axis}
 \end{tikzpicture}
-\vspace{-0.8cm}
-\end{figure}
