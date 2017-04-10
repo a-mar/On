@@ -2,8 +2,8 @@
 %used in conjunction with https://github.com/a-mar/On/blob/master/myapalike.bst
 
 \let\svdot. % CAN SAVE THE DOT IF NEEDED SOMEWHERE IN AUTHOR LIST
-\catcode`.=\active % % THE FOLLOWING LINE WOULD BE USEFUL FOR "Last FM, ..." FORMATS
-%\def\NoBibDots#1{\let.\relax#1\catcode`.=12}
-%
+\catcode`.=\active % 
+%\def\NoBibDots#1{\let.\relax#1\catcode`.=12} %for Last, F M formats
+% THE FOLLOWING LINE WOULD BE USEFUL FOR "Last FM, ..." FORMATS
 \def\NoBibDots#1{\def~{}\let.\ignorespaces#1\catcode`.=12}
 \catcode`.=12
