@@ -145,6 +145,12 @@ FUNCTION {fin.entry}
   newline$
 }
 
+FUNCTION {ende.entry}
+{
+  write$
+  newline$
+}
+
 FUNCTION {new.block}
 { output.state before.all =
     'skip$
@@ -242,6 +248,42 @@ FUNCTION {embolden}
   if$
 }
 
+FUNCTION {output.isnull}
+{ 's :=
+  output.state mid.sentence =
+    { ", " * write$ }
+    { output.state after.block =
+        { write$
+          newline$
+          "\newblock " write$
+        }
+        { output.state before.all =
+            'write$
+            { " " * write$ }
+          if$
+        }
+      if$
+      mid.sentence 'output.state :=
+    }
+  if$
+  s
+}
+
+FUNCTION {ausput}
+{ duplicate$ empty$
+    'pop$
+    'output.isnull
+  if$
+}
+
+FUNCTION {output.uncheck}
+{ 't :=
+  duplicate$ empty$
+    { pop$ "empty " t * " in " * cite$ * warning$ }
+    'output.isnull
+  if$
+}
+
 INTEGERS { nameptr namesleft numnames }
 
 FUNCTION {no.bib.dots}
@@ -257,17 +299,18 @@ FUNCTION {editor.name.format} %{ "{f{ }~~}{vv }{ll}{ jj}" }
   s num.names$ 'numnames :=
   numnames 'namesleft :=
     { namesleft #0 > }
-    { s nameptr "{f }{vv }{ll}{ jj}" format.name$ 't :=   % last name first
+    { s nameptr "{vv }{ll}{, jj}{ f}" format.name$ 't :=   % last name first
       nameptr #1 >
         { namesleft #1 >
             { ", " * t * }
             { numnames #2 >
-                { ",~" * }
+                { "" * }
                 'skip$
               if$
               t "others" =
                 { " et~al." * }
-                { " \& " * t * }
+                { ", " * t * }
+                %{ " \& " * t * }
                 %{ " and " * t * }
               if$
             }
@@ -287,17 +330,18 @@ FUNCTION {format.names}
   s num.names$ 'numnames :=
   numnames 'namesleft :=
     { namesleft #0 > }
-    { s nameptr "{vv~}{ll}{, jj}{ f}" format.name$ 't :=   % last name first
+    { s nameptr "{vv }{ll}{, jj}{ f}" format.name$ 't :=   % last name first
       nameptr #1 >
         { namesleft #1 >
-            { ", " * t * }
+            { ",{ }" * t * }
             { numnames #2 >
-                { ",~" * }
+                { "" * }
                 'skip$
               if$
               t "others" =
                 { " et~al." * }
-                { " \& " * t * }
+                { ", " * t * }
+                %{ " \& " * t * }
                 %{ " and " * t * }
               if$
             }
@@ -315,7 +359,7 @@ FUNCTION {format.authors}
 { author empty$
     { "" }
     %{ author format.names }
-    { author format.names embolden no.bib.dots "." embolden * }
+    { author format.names embolden no.bib.dots "{ }" embolden * }
   if$
 }
 
@@ -329,10 +373,10 @@ FUNCTION {format.key}                   % this function is just for apalike
 FUNCTION {format.editors}
 { editor empty$
     { "" }
-    { editor editor.name.format no.bib.dots "{}" *
+    { editor editor.name.format no.bib.dots ", " *
       editor num.names$ #1 >
-        { " (Eds.)" * }
-        { " (Ed.)" * }
+        { " eds" * }
+        { " ed" * }
       if$
     }
   if$
@@ -371,7 +415,7 @@ FUNCTION {n.dashify}
 }
 
 FUNCTION {format.btitle}
-{ title emphasize
+{ title 
 }
 
 FUNCTION {tie.or.space.connect}
@@ -459,8 +503,8 @@ FUNCTION {format.pages}
 { pages empty$
     { "" }
     { pages multi.page.check
-        { " pp." pages n.dashify tie.or.space.connect }
-        { " p." pages tie.or.space.connect }
+        { " pp" pages n.dashify tie.or.space.connect }
+        { " p" pages tie.or.space.connect }
       if$
     }
   if$
@@ -481,7 +525,7 @@ FUNCTION {format.vol.num.pages}
     'skip$
     { duplicate$ empty$
         { pop$ format.pages }
-        { ": " * pages n.dashify * }
+        { ": " embolden * pages n.dashify * }
       if$
     }
   if$
@@ -508,7 +552,7 @@ FUNCTION {format.in.ed.booktitle}
     { "" }
     { editor empty$
         { "In " booktitle emphasize * }
-        { "In " format.editors * ", " * booktitle emphasize * }
+        { "In " emphasize format.editors * ", " * booktitle * }
       if$
     }
   if$
@@ -562,10 +606,11 @@ FUNCTION {article}
   author format.key output                              % special for
   output.year.check                                     % apalike
   new.block
+  add.blank
   format.title "title" output.check
   new.block
   crossref missing$
-    { journal emphasize "journal" output.check
+    { journal "journal" output.check
       add.blank
       format.vol.num.pages output
     }
@@ -575,7 +620,7 @@ FUNCTION {article}
   if$
   new.block
   note output
-  fin.entry
+  ende.entry %fin.entry
 }
 
 FUNCTION {book}
@@ -593,15 +638,17 @@ FUNCTION {book}
   if$
   output.year.check                             % special for apalike
   new.block
+  add.blank
   format.btitle "title" output.check
   crossref missing$
     { format.bvolume output
       new.block
       format.number.series output
       new.sentence
-      address output
-      add.colon
       publisher "publisher" output.check
+      address output
+      %add.colon
+      
     }
     { new.block
       format.book.crossref output.nonnull
@@ -610,7 +657,7 @@ FUNCTION {book}
   format.edition output
   new.block
   note output
-  fin.entry
+  ende.entry %fin.entry
 }
 
 FUNCTION {booklet}
@@ -670,20 +717,21 @@ FUNCTION {incollection}
   author format.key output                              % special for
   output.year.check                                     % apalike
   new.block
+  add.blank
   format.title "title" output.check
   new.block
   crossref missing$
     { format.in.ed.booktitle "booktitle" output.check
-      add.openparen
-      format.bvolume output
-      add.blank
-      format.number.series output
-      format.chapter.pages output
-      add.closeparen
+      %add.openparen
+      %format.bvolume output
+      %add.blank
+      %format.number.series output
+      %add.closeparen
       new.sentence
-      address output
-      add.colon
       publisher "publisher" output.check
+      address output
+      %add.colon
+      format.chapter.pages output
       format.edition output
     }
     { format.incoll.inproc.crossref output.nonnull
@@ -692,7 +740,7 @@ FUNCTION {incollection}
   if$
   new.block
   note output
-  fin.entry
+  ende.entry %fin.entry
 }
 
 FUNCTION {inproceedings}
@@ -931,8 +979,8 @@ FUNCTION {format.lab.names}
         'skip$
         { s #2 "{ff }{vv }{ll}{ jj}" format.name$ "others" =
             { " et~al." * }
-            { " \& " * s #2 "{vv~}{ll}" format.name$ * }
-            %{ " and " * s #2 "{vv~}{ll}" format.name$ * }
+            %{ " \& " * s #2 "{vv~}{ll}" format.name$ * }
+            { " and " * s #2 "{vv~}{ll}" format.name$ * }
           if$
         }
       if$
