@@ -10,7 +10,7 @@ I'm obviously new to this. :P
 * [Melbourne (Minion Title Page)](http://bit.ly/1JEYk7C)
 * [Melbourne (Fira Title Page)](http://bit.ly/1I1iliU)
 
-### myapalike.bst 
+### [myapalike.bst](https://github.com/a-mar/On/blob/master/myapalike.bst) 
 This was an edit of the [apalike.bst](http://ftp.cs.stanford.edu/tex/bibtex/apalike.bst) file to look like [Plant Physiology](http://www.plantphysiol.org/) referencing ouput.
 ###### Some concerns:
 * The `.bib` file accompanying this referencing style should have the `number = {}` entry empty for `@article` types.
