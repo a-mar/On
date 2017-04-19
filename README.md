@@ -11,7 +11,19 @@ I'm obviously new to this. :P
 * [Melbourne (Fira Title Page)](http://bit.ly/1I1iliU)
 
 #### myapalike.bst 
-This was an edit of the [apalike.bst](http://ftp.cs.stanford.edu/tex/bibtex/apalike.bst) file to look like [Plant Physiology](http://www.plantphysiol.org/) referencing ouput. The `.bib` file accompanying this referencing style should have the `number = {}` empty for `@article` types.
+This was an edit of the [apalike.bst](http://ftp.cs.stanford.edu/tex/bibtex/apalike.bst) file to look like [Plant Physiology](http://www.plantphysiol.org/) referencing ouput.
+###### Some concerns:
+* The `.bib` file accompanying this referencing style should have the `number = {}` entry empty for `@article` types.
+* Names having `van de/der` should be written in the `.bib` file like `{van der Graaf}, Bjorn J` since there is a bug where the style file recognises the name `van Surname` and writes it as such but does not recognise the `van de/der` and writes it as `vande/der Surname` without any space between the `van` and `de/der`. So the fix is to write the surname in curly brackets as you want them to appear in the referencing, as shown above.
+* [Abbreviated journal](http://images.webofknowledge.com/images/help/WOS/A_abrvjt.html) names should also be used in the `journal = {}` entry
+
+The reference entry for journal articles comes out as:
+
+**Surname FMI, Second FMI, Third, FM** (YYYY) The title of the journal article. Abbreviated Name of the Journal. **vol:** pp&ndash;pp
+
+Example:
+
+**Atmodjo MA, Hao Z, Mohnen D** (2013) Evolving views of pectin biosynthesis. Annu Rev Plant Biol. **64:** 747&ndash;779
 
 
 
