@@ -4,13 +4,13 @@ and shenanigans.
 
 I'm obviously new to this. :P
 
-### Sample thesis documents ###
+#### Sample thesis documents
 * [Lincoln (Sub/section numbers *WITHIN* margins)](http://j.mp/lincolnu1)
 * [Lincoln (Sub/section numbers *OUTSIDE* margins)](http://j.mp/lincolnu2)
 * [Melbourne (Minion Title Page)](http://bit.ly/1JEYk7C)
 * [Melbourne (Fira Title Page)](http://bit.ly/1I1iliU)
 
-### myapalike.bst ###
+#### myapalike.bst 
 This was an edit of the [apalike.bst](http://ftp.cs.stanford.edu/tex/bibtex/apalike.bst) file to look like [Plant Physiology](http://www.plantphysiol.org/) referencing ouput. The `.bib` file accompanying this referencing style should have the `number = {}` empty for `@article` types.
 
 
@@ -18,7 +18,7 @@ This was an edit of the [apalike.bst](http://ftp.cs.stanford.edu/tex/bibtex/apal
 
 
 
-### Licence or disclaimer ###
+#### Licence or disclaimer
 
 The whole bunch of codes is distributed under the [MIT Licence](https://opensource.org/licenses/MIT) which means, as far as my poor understanding allows it:
 
